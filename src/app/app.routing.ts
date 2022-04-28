@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import {UniveristyDashboardComponent} from './pages/univeristy-dashboard/univeristy-dashboard.component';
+import {AppModule} from './app.module';
 
 const routes: Routes =[
   {
@@ -20,7 +22,8 @@ const routes: Routes =[
         loadChildren: () => import('src/app/layouts/admin-layout/admin-layout.module').then(m => m.AdminLayoutModule)
       }
     ]
-  }, {
+  },
+  {
     path: '',
     component: AuthLayoutComponent,
     children: [

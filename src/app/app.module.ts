@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { UniveristyDashboardComponent } from './pages/univeristy-dashboard/univeristy-dashboard.component';
+import { UniRequestComponent } from './pages/uni-request/uni-request.component';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ComponentsModule } from './components/components.module';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
