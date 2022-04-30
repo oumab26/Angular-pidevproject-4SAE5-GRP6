@@ -42,12 +42,9 @@
             "production": {
               "optimization": {
                 "scripts": true,
-                "styles": {
-                  "minify": false,
-                  "inlineCritical": false
-                },
-                "fonts": true
-              },
+                 "styles": true,
+                 "fonts": false
+             },
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
