@@ -16,6 +16,7 @@ import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/uni
 import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
 import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-offer.component';
 // import { ToastrModule } from 'ngx-toastr';
+import {CreateJobOfferComponent} from '../../pages/JobOffer-Dashboard/create-job-offer/create-job-offer.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-of
     MapsComponent,
     UniveristyDashboardComponent,
     UniRequestComponent,
-    JobOfferComponent
+    JobOfferComponent,
+    CreateJobOfferComponent
   ]
 })
 
