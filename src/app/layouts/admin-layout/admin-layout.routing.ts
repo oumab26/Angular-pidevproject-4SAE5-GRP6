@@ -7,11 +7,13 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/univeristy-dashboard.component';
 import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
+import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-offer.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'university-dashboard', component: UniveristyDashboardComponent },
     {path: 'universityReq/:id', component: UniRequestComponent},
+    {path: 'JobOffer-Dashboard', component: JobOfferComponent},
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent },
