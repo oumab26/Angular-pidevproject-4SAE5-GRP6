@@ -15,6 +15,7 @@ import { ComponentsModule } from './components/components.module';
 import { UniveristyDashboardComponent } from './pages/univeristy-dashboard/univeristy-dashboard.component';
 import { UniRequestComponent } from './pages/uni-request/uni-request.component';
 import { JobOfferComponent } from './pages/JobOffer-Dashboard/job-offer/job-offer.component';
+import { CreateJobOfferComponent } from './pages/JobOffer-Dashboard/create-job-offer/create-job-offer.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { JobOfferComponent } from './pages/JobOffer-Dashboard/job-offer/job-offe
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent,
+    AuthLayoutComponent
+ 
    
 
   ],
