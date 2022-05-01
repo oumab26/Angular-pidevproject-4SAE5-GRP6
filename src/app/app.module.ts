@@ -31,7 +31,7 @@ import { JobOfferComponent } from './pages/JobOffer-Dashboard/job-offer/job-offe
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
-    JobOfferComponent,
+   
 
   ],
   providers: [],

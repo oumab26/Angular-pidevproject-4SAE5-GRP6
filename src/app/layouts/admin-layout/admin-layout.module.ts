@@ -14,6 +14,7 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/univeristy-dashboard.component';
 import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
+import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-offer.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -33,6 +34,7 @@ import {UniRequestComponent} from '../../pages/uni-request/uni-request.component
     MapsComponent,
     UniveristyDashboardComponent,
     UniRequestComponent,
+    JobOfferComponent
   ]
 })
 
