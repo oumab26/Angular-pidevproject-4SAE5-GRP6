@@ -1,93 +1,116 @@
 
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
-    <div class="container-fluid">
-        <div class="header-body">
-        <!-- Card stats -->
-        <div class="row">
-          <div class="col-xl-3 col-lg-6">
-            <nav class="navbar navbar-expand-sm bg-danger navbar-expand-sm">
-                <!-- Links -->
-             
-                <ul class="navbar-nav">
-            <li class="nav-item">
-           
-                    <a routerLink="add" class="nav-link" routerLinkActive="active" class="bg-white">   <i class="ni ni-fat-add">Add</i></a>  
-            </li></ul></nav>
-          
-    </div>
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <nav class="navbar navbar-expand-sm bg-danger navbar-expand-sm">
+            <!-- Links -->
 
-  <div class="container-fluid mt--12">
-  
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <button routerLink="/add" class="btn" class="bg-white">  <i class="ni ni-fat-add">Add</i></button>
+              </li>
+              <li class="nav-item">
+                <button routerLink="/calender" class="btn" class="bg-white">  <i class="ni ni-calendar-grid-58"></i>   Calendrier</button>
+              </li>
+            </ul></nav>
 
-  
-        <div class="col-xl-20 mb-5 mb-xl-0">
-          <div class="card shadow">
-            <div class="card-header border-0">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h3 class="mb-0">Job Offer List</h3>
-                  
+        </div>
+
+        <div class="container-fluid mt--12">
+
+          <!-- Search form -->
+
+
+          <div class="col-xl-20 mb-5 mb-xl-0">
+            <div class="card shadow">
+              <div class="card-header border-0">
+
+              </div>
+
+
+              <nav class="navbar navbar-expand-lg navbar-dark bg-">
+                <a class="navbar-brand" style="color:darkred;">Job Offer List</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+
+
+
                 </div>
-  
+              </nav>
+              <div class="container" id="main-container">
+                <div class="row">
+
+                  <div  *ngFor="let jobOffer of JobOffer | async" class="col-md-2 col-xl-3">
+
+
+                    <div class="card border-primary text-primary">
+                      <div class="col-11">
+                        <a href=""><img src="../../../../assets/img/Exploding-Job-Offer-Dice.png"  class="card-img-top" width="200" height="128"></a>
+                      </div>
+
+                      <ul class="list-group list-group-flush">
+                        <h3>
+                          <li class="list-group-item">{{jobOffer.titleOffer}}</li></h3>
+                        <li class="list-group-item"><i class='far fa-building'></i> {{jobOffer.company}}</li>
+
+                        <li class="list-group-item"><i class='fas fa-briefcase'></i> &nbsp; &nbsp;Domaine :{{jobOffer. domaine}}</li>
+                        <li class="list-group-item"><i class='fas fa-map-marked-alt'></i> {{jobOffer.addressOffer}}</li>
+                        <li class="list-group-item">   <i class="ni ni-calendar-grid-58"></i>    {{jobOffer. startDateoffer}}</li>
+
+                      </ul>
+                      <div class="card-body">
+                        <div class="float-right btn-group btn-group-sm">
+                          <button (click)=" deleteJobOffer(jobOffer.idOffer)" class="btn btn-danger" style="margin-left: 10px"><i class="ni ni-scissors"></i></button>
+                          <button (click)=" UpdateJobOffer(jobOffer.idOffer)" class="btn btn-info" style="margin-left: 10px"><i class='fas fa-edit'></i></button>
+                          <button   (click)="JobOfferDetails(jobOffer.idOffer)"class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-plus"></span> Plus
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
-           
-
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-               
-            
-                <div class="panel-body">
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>titleOffer</th>
-                        <th>company</th>
-                        <th>domaine</th>
-                        <th>adresse</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let jobOffer of JobOffer | async">
-                        <td>{{jobOffer.titleOffer}}</td>
-                        <td>{{jobOffer.company}}</td>
-                        <td>{{jobOffer. domaine}}</td>
-                        <td>{{jobOffer.addressOffer}}</td>
-            
-                      
-                        <td><button (click)="deleteJobOffer(jobOffer)" class="btn btn-danger">Delete</button>
-                          <button (click)=" updateJobOffer(jobOffer.idoffer)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                        
-                            <button (click)="JobOfferDetails(jobOffer.idoffer)" class="btn btn-info" style="margin-left: 10px">Details</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              
-  </div>
-  </div>
           </div>
-      
-        </div>
+        </div></div>
     </div>
+  </div>
+</div>
 
-           
-  
-  
-      
-       
-  
-         
-    
-  
-  
 
-   
-  
-  
 
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

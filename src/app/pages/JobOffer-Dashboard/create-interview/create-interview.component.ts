@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { JobOffer } from '../../../Model/JobOffer';
+import { Interview } from '../../../Model/Interview';
 import { Router } from '@angular/router';
 import { JobOfferService } from "../../JobOffer-Dashboard/Service/job-offer.service";
-@Component({
-  selector: 'app-create-job-offer',
-  templateUrl: './create-job-offer.component.html',
-  styleUrls: ['./create-job-offer.component.scss']
-})
-export class CreateJobOfferComponent implements OnInit {
 
-  JobOffer: JobOffer = new JobOffer();
+@Component({
+  selector: 'app-create-interview',
+  templateUrl: './create-interview.component.html',
+  styleUrls: ['./create-interview.component.scss']
+})
+export class CreateInterviewComponent implements OnInit {
+
+
+  Interview: Interview = new Interview();
 
 
   constructor(private JobOfferService: JobOfferService,
@@ -24,7 +26,7 @@ export class CreateJobOfferComponent implements OnInit {
   }
 
   saveEmployee(){
-    this.JobOfferService.createJobOffer(this.JobOffer).subscribe(data=>{
+    this.JobOfferService.createInterview(this.Interview).subscribe(data=>{
         console.log(data);
         this.goToEmployeeList();
       },
@@ -33,10 +35,11 @@ export class CreateJobOfferComponent implements OnInit {
   goToEmployeeList(){
     this.router.navigate(['/JobOffer']);
   }
-  onSubmit(){
-    console.log(this.JobOffer);
+  on(){
+    console.log(this.Interview);
     this.saveEmployee();
   }
+
 
 
 }

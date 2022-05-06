@@ -1,0 +1,38 @@
+
+
+<div class="col-md-6 offset-md-3">
+  <h3>Update Job Offer</h3>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label >titleOffer</label>
+      <input type="text" class="form-control" id="titleOffer" required [(ngModel)]="jobOffer.titleOffer" name="titleOffer">
+    </div>
+
+    <div class="form-group">
+      <label >description</label>
+      <input type="text" class="form-control" id="description" required [(ngModel)]="jobOffer.description" name="description">
+    </div>
+
+    <div class="form-group">
+      <label >email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="jobOffer.email" name="email">
+    </div>
+    <div class="form-group">
+      <label >domaine</label>
+      <input type="text" class="form-control" id="domaine" required [(ngModel)]="jobOffer.domaine" name="domaine">
+    </div>
+    <div class="form-group">
+      <label >addressOffer</label>
+      <input type="text" class="form-control" id="addressOffer" required [(ngModel)]="jobOffer.addressOffer" name="addressOffer">
+    </div>
+    <div class="form-group">
+      <label > company</label>
+      <input type="text" class="form-control" id="company" required [(ngModel)]="jobOffer.company" name=" company">
+    </div>
+    <div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+
+  </form>
+</div>

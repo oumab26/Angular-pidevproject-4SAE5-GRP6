@@ -17,6 +17,9 @@ import {UniRequestComponent} from '../../pages/uni-request/uni-request.component
 import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-offer.component';
 // import { ToastrModule } from 'ngx-toastr';
 import {CreateJobOfferComponent} from '../../pages/JobOffer-Dashboard/create-job-offer/create-job-offer.component';
+import {JobOfferDetailsComponent} from "../../pages/JobOffer-Dashboard/job-offer-details/job-offer-details.component";
+import {CreateInterviewComponent} from "../../pages/JobOffer-Dashboard/create-interview/create-interview.component";
+import {UpdateJobOfferComponent} from "../../pages/JobOffer-Dashboard/update-job-offer/update-job-offer.component";
 
 @NgModule({
   imports: [
@@ -36,7 +39,10 @@ import {CreateJobOfferComponent} from '../../pages/JobOffer-Dashboard/create-job
     UniveristyDashboardComponent,
     UniRequestComponent,
     JobOfferComponent,
-    CreateJobOfferComponent
+    CreateJobOfferComponent,
+    UpdateJobOfferComponent,
+    JobOfferDetailsComponent,
+    CreateInterviewComponent
   ]
 })
 
