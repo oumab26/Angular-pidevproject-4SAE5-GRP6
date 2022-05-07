@@ -12,6 +12,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+//import { SearchFilterPipe } from './pages/JobOffer-Dashboard/search-filter.pipe';
 
 
 
@@ -23,12 +25,14 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     NgbModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent
+
 
 
 

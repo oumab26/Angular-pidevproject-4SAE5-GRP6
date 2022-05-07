@@ -20,16 +20,18 @@ import {CreateJobOfferComponent} from '../../pages/JobOffer-Dashboard/create-job
 import {JobOfferDetailsComponent} from "../../pages/JobOffer-Dashboard/job-offer-details/job-offer-details.component";
 import {CreateInterviewComponent} from "../../pages/JobOffer-Dashboard/create-interview/create-interview.component";
 import {UpdateJobOfferComponent} from "../../pages/JobOffer-Dashboard/update-job-offer/update-job-offer.component";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(AdminLayoutRoutes),
-    FormsModule,
-    HttpClientModule,
-    NgbModule,
-    ClipboardModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(AdminLayoutRoutes),
+        FormsModule,
+        HttpClientModule,
+        NgbModule,
+        ClipboardModule,
+        Ng2SearchPipeModule
+    ],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
