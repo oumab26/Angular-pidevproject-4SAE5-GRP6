@@ -11,7 +11,8 @@ import { Observable } from "rxjs";
 export class JobOfferComponent implements OnInit {
   private data:any;
   JobOffer: Observable<JobOffer[]>;
-
+  public searchFilter: any = '';
+  filterTerm: string;
   constructor(private JobOfferService: JobOfferService,
               private router: Router) {}
   ngOnInit() {
@@ -52,6 +53,7 @@ export class JobOfferComponent implements OnInit {
     this.JobOfferService.updateJobOffer(jobOffer).subscribe(() => this.JobOfferService.getJobOfferList());
   }
    */
+
 
 
 
