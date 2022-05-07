@@ -13,7 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
-//import { SearchFilterPipe } from './pages/JobOffer-Dashboard/search-filter.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -26,7 +26,8 @@ import {Ng2SearchPipeModule} from "ng2-search-filter";
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   declarations: [
     AppComponent,

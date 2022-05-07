@@ -10,17 +10,44 @@ import { Observable } from "rxjs";
 })
 export class JobOfferComponent implements OnInit {
   private data:any;
-  JobOffer: Observable<JobOffer[]>;
+  JobOffer: JobOffer[];
   public searchFilter: any = '';
   filterTerm: string;
+
+
+  p: number = 1;
+  total: number = 0;
+
   constructor(private JobOfferService: JobOfferService,
               private router: Router) {}
   ngOnInit() {
     this.reloadData();
+
   }
 
-  reloadData() {
-    this.JobOffer= this.JobOfferService.getJobOfferList();
+  reloadData() : void {
+    this.JobOfferService.getJobOfferList().subscribe(
+      (response) => {
+        this.JobOffer = response;
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+
+
+  }
+
+  /**
+   * Write code on Method
+   *
+   * @return response()
+   */
+  pageChangeEvent(event: number){
+    this.p = event;
+    this.JobOfferService.getJobOfferList();
   }
 
 
