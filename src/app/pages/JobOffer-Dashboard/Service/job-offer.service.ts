@@ -64,4 +64,13 @@ export class JobOfferService {
   }
 
 
+
+  private url = 'http://localhost:8082/pidevBackEnd/Jobs/page/';
+
+
+
+  getJobOfferPage(page: number){
+    return this.http.get(this.url + '?page=' + page);
+  }
+
 }
