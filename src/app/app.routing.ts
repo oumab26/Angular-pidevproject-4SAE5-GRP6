@@ -11,7 +11,12 @@ const routes: Routes =[
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, {
+  },
+  
+  { path: 'forum',loadChildren: () => import('src/app/forum-module/forum-module.module').then(m => m.ForumModuleModule) }
+  ,
+  
+  {
     path: '',
     component: AdminLayoutComponent,
     children: [
