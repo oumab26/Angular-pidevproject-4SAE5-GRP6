@@ -28,7 +28,9 @@ export class ForumComponent implements OnInit {
   excelent = new Array();
   meduim = new Array();
   low = new Array();
-
+  filtredList:Post[];
+  typed;
+  locked = false;
   constructor(private activatedRoute:ActivatedRoute,private http:HttpClient,private modalService: NgbModal,private postService:PostServiceService,private formBuilder:FormBuilder){
 
   }
@@ -55,11 +57,7 @@ export class ForumComponent implements OnInit {
           this.postEvaluation.push(data);
           if(data!= null){
             if(data["rating"]!=null){
-              //console.log(data["rating"]);
-              console.log(data["postId"]);
-              console.log("from evaluate : "  + data.postId);
-              console.log("from the regular post : " + post.postId);
-              //{};
+            
             }
             if(data.comments != null){
               data.comments.forEach(comment=>{
@@ -67,7 +65,7 @@ export class ForumComponent implements OnInit {
                   //console.log(data)
                   data.forEach(evaluation=>{
                     if(evaluation.rating != null){
-                      console.log(evaluation.evaluatePostKey.userId + " : " + evaluation.rating);
+                      //console.log(evaluation.evaluatePostKey.userId + " : " + evaluation.rating);
                       if(this.USER_ID  == evaluation.evaluatePostKey.userId){
                         if(evaluation.rating == "HIGH"){
                           this.excelent.push(evaluation.evaluatePostKey.postId);
@@ -85,7 +83,7 @@ export class ForumComponent implements OnInit {
                       }
                     }
                     //console.log(evaluation.rating)
-                    if( evaluation.comment != null && comment.commentId == evaluation.comment.commentId){
+                    if( evaluation.comment != null && comment.commentId == evaluation.comment.commentId && this.locked == false){
                       //console.log("One matching ...");
                       //console.log(evaluation.evaluatePostKey.userId);
                       let  i = new Array();
@@ -118,7 +116,7 @@ export class ForumComponent implements OnInit {
         })
       })   
     });
-    console.log(this.postEvaluation);
+    //console.log(this.postEvaluation);
   
   }
 
@@ -239,5 +237,34 @@ export class ForumComponent implements OnInit {
      this.postService.addEvaluationEmoji(postId,this.USER_ID,"LOVE").subscribe(data=>console.log(data));
     
    }
+
+
+   filterPosts(event){
+     let value = event.target.value;
+   
+     if(this.typed.length==0){
+      console.log("i'm here")
+      this.locked = true;
+      this.ngOnInit();
+    }
+    
+      this.posts =  this.posts.filter(item=>{
+        //console.log(item.postCategory.indexOf(value.toUpperCase()) != -1)
+        return item.postCategory.indexOf(value.toUpperCase()) !== -1
+       })
+    
+  
+    //console.log(this.posts.length)
+   }
+
+  countPosts(){
+    //console.log(this.posts)
+    //console.log(this.filtredList)
+    //this.posts = this.filtredList;
+    //console.log(this.posts.length);
+    console.log(this.posts);
+    //this.ngOnInit();
+  }
+   
 
 }
