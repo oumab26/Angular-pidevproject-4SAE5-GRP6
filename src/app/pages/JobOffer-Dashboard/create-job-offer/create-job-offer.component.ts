@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobOffer } from '../../../Model/JobOffer';
 import { Router } from '@angular/router';
 import { JobOfferService } from "../../JobOffer-Dashboard/Service/job-offer.service";
+
 @Component({
   selector: 'app-create-job-offer',
   templateUrl: './create-job-offer.component.html',

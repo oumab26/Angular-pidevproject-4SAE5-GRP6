@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { JobOffer } from "../../../Model/JobOffer";
 import { JobOfferService } from "../Service/job-offer.service";
 import { Router } from '@angular/router';
-import { Observable } from "rxjs";
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-job-offer',
   templateUrl: './job-offer.component.html',
@@ -51,7 +52,7 @@ export class JobOfferComponent implements OnInit {
   }
 
 
-
+/**
 
   deleteJobOffer(idOffer: number) {
     this.JobOfferService.deleteJobOffer(idOffer).subscribe(
@@ -62,7 +63,7 @@ export class JobOfferComponent implements OnInit {
       error => console.log(error));
   }
 
-
+**/
 
 
 
@@ -86,4 +87,44 @@ export class JobOfferComponent implements OnInit {
 
 
 
+  deleteJob(idOffer:number)
+  {
+    Swal.fire({
+      title: 'Are you sure want to remove?',
+      text: 'You can not recuperate this document!!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((response: any) => {
+      if (response.value) {
+        this.JobOfferService.deleteJobOffer(idOffer).subscribe(
+          data => {
+            console.log(data);
+            this.reloadData();
+          })
+        Swal.fire(
+          'Deleted!',
+          'Your imaginary file has been deleted.',
+          'success'
+        )
+      } else if (response.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Your imaginary file is safe',
+          'error'
+        )
+      }
+    })
+
+
+    }
+
+
+
+
+
 }
+
+
+

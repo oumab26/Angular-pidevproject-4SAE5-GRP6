@@ -56,21 +56,6 @@ export class JobOfferService {
 
   }
 
-  search(JobOffer:JobOffer)
-  {
-    let url = this.baseUrl4 + "keyword";
-    return  this.http.post(url , JobOffer);
 
-  }
-
-
-
-  private url = 'http://localhost:8082/pidevBackEnd/Jobs/page/';
-
-
-
-  getJobOfferPage(page: number){
-    return this.http.get(this.url + '?page=' + page);
-  }
 
 }
