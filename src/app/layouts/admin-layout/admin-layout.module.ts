@@ -16,6 +16,12 @@ import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/uni
 import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
 import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-offer.component';
 // import { ToastrModule } from 'ngx-toastr';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+FullCalendarModule.registerPlugins([interactionPlugin, dayGridPlugin]);
+import { CalendrierComponent  } from 'src/app/pages/JobOffer-Dashboard/calendrier/calendrier.component';
+
 import {CreateJobOfferComponent} from '../../pages/JobOffer-Dashboard/create-job-offer/create-job-offer.component';
 import {JobOfferDetailsComponent} from "../../pages/JobOffer-Dashboard/job-offer-details/job-offer-details.component";
 import {CreateInterviewComponent} from "../../pages/JobOffer-Dashboard/create-interview/create-interview.component";
@@ -32,7 +38,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     NgbModule,
     ClipboardModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FullCalendarModule
   ],
   declarations: [
     DashboardComponent,
@@ -46,7 +53,9 @@ import {NgxPaginationModule} from "ngx-pagination";
     CreateJobOfferComponent,
     UpdateJobOfferComponent,
     JobOfferDetailsComponent,
-    CreateInterviewComponent
+    CreateInterviewComponent,
+    CalendrierComponent ,
+
   ]
 })
 

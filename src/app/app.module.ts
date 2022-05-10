@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { NgxPaginationModule } from 'ngx-pagination';
+import {FullCalendarModule} from "@fullcalendar/angular";
 
 
 
@@ -27,12 +28,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RouterModule,
     AppRoutingModule,
     Ng2SearchPipeModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FullCalendarModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+
 
 
 

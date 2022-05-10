@@ -12,6 +12,7 @@ import {CreateJobOfferComponent} from '../../pages/JobOffer-Dashboard/create-job
 import {CreateInterviewComponent} from "../../pages/JobOffer-Dashboard/create-interview/create-interview.component";
 import {UpdateJobOfferComponent} from "../../pages/JobOffer-Dashboard/update-job-offer/update-job-offer.component";
 import {JobOfferDetailsComponent} from "../../pages/JobOffer-Dashboard/job-offer-details/job-offer-details.component";
+import { CalendrierComponent } from 'src/app/pages/JobOffer-Dashboard/calendrier/calendrier.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -21,6 +22,7 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'update/:idOffer',      component: UpdateJobOfferComponent },
   { path: 'details/:idOffer',      component: JobOfferDetailsComponent },
   {path: 'JobOffer-Dashboard', component: JobOfferComponent},
+  { path: 'calender',      component: CalendrierComponent  },
 
   /**end ouma balti**/
 
