@@ -1,10 +1,10 @@
 
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8" >
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
       <div class="row">
-        <div class="col-xl-3 col-lg-6">
+        <div class="col-xl-3 col-lg-6" >
           <nav class="navbar navbar-expand-sm bg-danger navbar-expand-sm">
             <!-- Links -->
 
@@ -50,7 +50,7 @@
               <div class="container" id="main-container">
                 <div class="row">
 
-                  <div  *ngFor="let jobOffer of JobOffer | filter:filterTerm|  paginate: { itemsPerPage: 2, currentPage: p, totalItems: total }" class="col-md-2 col-xl-3">
+                  <div  *ngFor="let jobOffer of JobOffer | filter:filterTerm|  paginate: { itemsPerPage: 4, currentPage: p, totalItems: total }" class="col-md-2 col-xl-3">
 
 
                     <div class="card border-primary text-primary">
@@ -60,9 +60,7 @@
 
                       <ul class="list-group list-group-flush">
                         <h3>
-                          <li class="list-group-item">{{jobOffer.titleOffer}}</li></h3>
-                        <li class="list-group-item"><i class='far fa-building'></i> {{jobOffer.company}}</li>
-
+                          <li class="list-group-item">{{jobOffer.titleOffer}}&ensp; &ensp;/&ensp; &ensp; &ensp;<i class='far fa-building'></i> &ensp;{{jobOffer.company}}</li></h3>
                         <li class="list-group-item"><i class='fas fa-briefcase'></i> &nbsp;{{jobOffer. domaine}}</li>
                         <li class="list-group-item"><i class='fas fa-map-marked-alt'></i> {{jobOffer.addressOffer}}</li>
                         <li class="list-group-item">   <i class="ni ni-calendar-grid-58"></i>    {{jobOffer. startDateoffer}}</li>
