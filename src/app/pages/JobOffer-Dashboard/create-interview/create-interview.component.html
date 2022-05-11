@@ -1,0 +1,62 @@
+
+<div class="header bg-white pb-6 pt-4 pt-md-6" >
+  <div class="container-fluid" style="background: #f55540">
+    <div class="header-body">
+      <a href="#" routerLink="/JobOffer-Dashboard" class="btn btn-primary" style="alignment:right">Back</a>
+
+      <div class="col-md-6 offset-md-3">
+        <img src="assets/img/1.jpg">
+  <h3 style="color:white">Create interview</h3>
+
+  <form (ngSubmit)="on()">
+
+    <div class="form-group">
+      <label >title</label>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="Interview.title" name="title">
+
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <label class="form-control-label" > date</label>
+        <input type="date" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}" [(ngModel)]="Interview. date" class="form-control form-control-alternative" >
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group">
+        <label class="form-control-label" > time</label>
+        <input type="time"  [(ngModel)]="Interview.time" class="form-control form-control-alternative" >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label >description</label>
+      <input type="text" class="form-control" id="description" required [(ngModel)]="Interview.description" name="description">
+    </div>
+
+    <div class="form-group">
+      <label >numTel</label>
+      <input type="text" class="form-control" id="numTel" required [(ngModel)]="Interview.numTel" name="numTel">
+    </div>
+    <div class="form-group">
+      <label > mail</label>
+      <input type="text" class="form-control" id=" mail" required [(ngModel)]="Interview.mail" name="mail">
+    </div>
+    <div class="form-group">
+      <label >webSite</label>
+      <input type="text" class="form-control" id="webSite" required [(ngModel)]="Interview.webSite" name="webSite">
+    </div>
+
+
+    <div class="form-group">
+      <label > link</label>
+      <input type="text" class="form-control" id="link" required [(ngModel)]="Interview.link" name="link">
+    </div>
+    <div>
+      <button class="btn btn-primary"  type="submit">Submit</button>
+    </div>
+
+  </form>
+</div>
+    </div>
+  </div>
+</div>
