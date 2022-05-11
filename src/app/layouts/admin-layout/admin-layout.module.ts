@@ -23,7 +23,7 @@ import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-of
 
 // import { ToastrModule } from 'ngx-toastr';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import interactionPlugin from '@fullcalendar/interaction';
+//import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 FullCalendarModule.registerPlugins([interactionPlugin, dayGridPlugin]);
 import { CalendrierComponent  } from 'src/app/pages/JobOffer-Dashboard/calendrier/calendrier.component';
@@ -33,7 +33,9 @@ import {JobOfferDetailsComponent} from "../../pages/JobOffer-Dashboard/job-offer
 import {CreateInterviewComponent} from "../../pages/JobOffer-Dashboard/create-interview/create-interview.component";
 import {UpdateJobOfferComponent} from "../../pages/JobOffer-Dashboard/update-job-offer/update-job-offer.component";
 import {Ng2SearchPipeModule} from "ng2-search-filter";
-import {NgxPaginationModule} from "ngx-pagination";
+//import {NgxPaginationModule} from "ngx-pagination";
+import interactionPlugin from '@fullcalendar/interaction';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
