@@ -14,7 +14,13 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/univeristy-dashboard.component';
 import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
+
+import {FrontUniComponent} from '../../pages/front-uni/front-uni.component';
+import {AddUniReqComponent} from '../../pages/add-uni-req/add-uni-req.component';
+import {MyRequestsComponent} from '../../pages/my-requests/my-requests.component';
+
 import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-offer.component';
+
 // import { ToastrModule } from 'ngx-toastr';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -52,12 +58,18 @@ import {NgxPaginationModule} from "ngx-pagination";
     MapsComponent,
     UniveristyDashboardComponent,
     UniRequestComponent,
+
+    FrontUniComponent,
+    AddUniReqComponent,
+    MyRequestsComponent,
+
     JobOfferComponent,
     CreateJobOfferComponent,
     UpdateJobOfferComponent,
     JobOfferDetailsComponent,
     CreateInterviewComponent,
     CalendrierComponent ,
+
 
   ]
 })

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {UniRequest} from '../uni-request';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,13 @@ export class UniReqService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllUniReqs(idUniversityOffer : any) :Observable<Request[]>
+  getAllUniReqs(idUniversityOffer : any) :Observable<UniRequest[]>
   {
-    return this.httpClient.get<Request[]>(this.API_URL + '/pidevBackEnd/DisplayUniReq/' + idUniversityOffer)
+    return this.httpClient.get<UniRequest[]>(this.API_URL + '/pidevBackEnd/DisplayUniReq/' + idUniversityOffer)
+  }
+
+  DisplayMyReqs(): Observable<UniRequest[]>
+  {
+    return this.httpClient.get<UniRequest[]>(this.API_URL + '/pidevBackEnd/DisplayMyReq/' + 3)
   }
 }

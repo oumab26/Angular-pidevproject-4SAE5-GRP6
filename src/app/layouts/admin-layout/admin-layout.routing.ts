@@ -7,12 +7,18 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/univeristy-dashboard.component';
 import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
+
+import {FrontUniComponent} from '../../pages/front-uni/front-uni.component';
+import {AddUniReqComponent} from '../../pages/add-uni-req/add-uni-req.component';
+import {MyRequestsComponent} from '../../pages/my-requests/my-requests.component';
+
 import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-offer.component';
 import {CreateJobOfferComponent} from '../../pages/JobOffer-Dashboard/create-job-offer/create-job-offer.component';
 import {CreateInterviewComponent} from "../../pages/JobOffer-Dashboard/create-interview/create-interview.component";
 import {UpdateJobOfferComponent} from "../../pages/JobOffer-Dashboard/update-job-offer/update-job-offer.component";
 import {JobOfferDetailsComponent} from "../../pages/JobOffer-Dashboard/job-offer-details/job-offer-details.component";
 import { CalendrierComponent } from 'src/app/pages/JobOffer-Dashboard/calendrier/calendrier.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -27,8 +33,11 @@ export const AdminLayoutRoutes: Routes = [
   /**end ouma balti**/
 
     {path: 'universityReq/:id', component: UniRequestComponent},
+    { path: 'front-uni', component: FrontUniComponent },
+  { path: 'addUniReq/:id', component: AddUniReqComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent }
+    { path: 'maps',           component: MapsComponent },
+    { path: 'My-Requests',    component:  MyRequestsComponent }
 ];

@@ -1,4 +1,3 @@
-<p>uni-request works!</p>
 
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
@@ -98,51 +97,50 @@
 
   <div class="row">
 
-    <div class="col-xl-8 mb-5 mb-xl-0">
+
+
+    <div class="col-xl-4">
       <div class="card shadow">
-        <div class="card-header border-0">
+        <div class="card-header bg-transparent">
           <div class="row align-items-center">
             <div class="col">
-              <h3 class="mb-0">Page visits</h3>
+              <h6 class="text-uppercase text-muted ls-1 mb-1">University</h6>
+              <h2 class="mb-0">ADD UNIVERSITY </h2>
             </div>
-            <div class="col text-right">
-              <a class="btn btn-sm btn-primary" routerLink='/university-dashboard'>Back</a>
+            <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary" (click)="upload(request)">Add</a>
             </div>
           </div>
         </div>
-        <div class="table-responsive">
-          <!-- Projects table -->
-          <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-            <tr>
-              <th scope="col">Page name</th>
-              <th scope="col">Visitors</th>
-              <th scope="col">Unique users</th>
+        <div class="card-body">
+          <!-- Chart -->
+          <div class="card-body">
+            <form>
+              <h6 class="heading-small text-muted mb-4">Make Request</h6>
+              <div class="pl-lg-4">
 
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor='let R of listRequest'>
-              <td>
-                {{R.message}}
-              </td>
-              <td>
-                {{R.etat}}
-              </td>
-              <td>
-                <a  class="btn btn-sm btn-primary" (click)="DownloadCV(R.requestPK.id,R.requestPK.idUniversityOffer)">Download CV</a>
-                <a  class="btn btn-sm btn-success" (click)="Accept(R.requestPK.id,R.requestPK.idUniversityOffer)">Accept</a>
-              </td>
-            </tr>
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Message</label>
+                    <input type="text" [(ngModel)]="request.message" class="form-control form-control-alternative" >
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >CV</label>
+                    <input type="file" (change)="selectFile($event)" />
+                  </div>
+                </div>
 
-            </tbody>
-          </table>
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
     </div>
-
-
   </div>
+
 
 
 </div>

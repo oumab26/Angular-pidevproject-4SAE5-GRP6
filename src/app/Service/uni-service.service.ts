@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpRequest} from '@angular/common/http';
+import {HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {University} from '../university';
 import {sortTasksByPriority} from '@angular/compiler-cli/ngcc/src/execution/tasks/utils';
@@ -23,9 +23,24 @@ export class UniServiceService {
     return this.httpClient.get<University[]>(this.API_URL + '/pidevBackEnd/Display')
   }
 
-  addUniversity(U : University) {
+
+  Apply(idUniversityOffer: any, R: UniRequest, file: any)
+  {
+    console.log(file)
+
+    const formData = new FormData();
+    formData.append('cv', file);
+    formData.append('message',R.message)
+    formData.append('etat',R.etat)
+
+    console.log(formData.get('cv'))
+
+    return this.httpClient.post(this.API_URL + '/pidevBackEnd/Request/Create' + "/3/" + idUniversityOffer,formData)
+  }
+
+  addUniversity(U : University,file: File){
     console.log(U.startDate);
-  let file: File = null
+
     const formData = new FormData();
     formData.append('file', file);
     formData.append("universityName", U.universityName)
@@ -38,8 +53,6 @@ export class UniServiceService {
     formData.append("language", U.language)
     formData.append("learnType", U.learnType)
     formData.append("image", U.image)
-
-
 
 console.log(formData.get("startDate"));
 
@@ -68,6 +81,48 @@ console.log(formData.get("startDate"));
   Accept(id: any, idUniversityOffer: any)
   {
     return this.httpClient.put(this.API_URL + '/pidevBackEnd/Request/Accept/' + id + "/" + idUniversityOffer, null)
+  }
+
+
+  upload(file: File,idUniversityOffer: any, R: UniRequest): Observable<HttpEvent<any>> {
+    console.log(idUniversityOffer)
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    formData.append('message',R.message)
+    formData.append('etat',R.etat)
+    const req = new HttpRequest('POST', this.API_URL + '/pidevBackEnd/Request/Create' + "/3/" + idUniversityOffer, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.httpClient.request(req);
+  }
+
+  Rating(idUniversity:any)
+  {
+    return this.httpClient.get(this.API_URL + '/pidevBackEnd/RatingOfUniOff/' + idUniversity)
+  }
+
+  RateUni(idUniversity: any, score:any)
+  {
+    console.log(score)
+    console.log(idUniversity)
+    return this.httpClient.put(this.API_URL + '/pidevBackEnd/RateUniOff/' + idUniversity + "/" + score,null)
+
+  }
+
+Sort(PageNum,PageSize,SortBy,Type): Observable<University[]>
+{
+  let params = new HttpParams()
+    .set('PageNo', PageNum)
+    .set('PageSize', PageSize)
+    .set('SortBy', SortBy)
+    .set('Type', Type);
+  return this.httpClient.get<University[]>(this.API_URL + '/pidevBackEnd/SortUniOff', {params: params})
+}
+
+  DisplayMyReqs(): Observable<UniRequest[]>
+  {
+    return this.httpClient.get<UniRequest[]>(this.API_URL + '/pidevBackEnd/Request/DisplayMyReq/' + 3)
   }
 
 
