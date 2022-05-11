@@ -75,10 +75,7 @@ import { TrainerListComponent } from '../../pages/Training-Dashboard/trainer-lis
     QuizDetailsComponent,
     QuizListComponent,
     UpdateQuizComponent,
-    TrainerListComponent
-  ],
-  providers: [DatePipe]
-
+    TrainerListComponent,
     UniveristyDashboardComponent,
     UniRequestComponent,
 
@@ -92,9 +89,9 @@ import { TrainerListComponent } from '../../pages/Training-Dashboard/trainer-lis
     JobOfferDetailsComponent,
     CreateInterviewComponent,
     CalendrierComponent ,
-
-
   ]
+
+
 
 })
 

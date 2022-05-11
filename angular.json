@@ -34,10 +34,10 @@
             "styles": [
               "src/styles.scss",
 
-              "src/assets/scss/argon.scss"
-              
-
               "src/assets/scss/argon.scss",
+
+
+
 
               "node_modules/flag-icon-css/css/flag-icons.min.css",
 

@@ -56,10 +56,10 @@ export const AdminLayoutRoutes: Routes = [
       { path: 'add', component: CreateQuizComponent },
       { path: 'update/:id', component: UpdateQuizComponent },
       { path: 'details/:id', component: QuizDetailsComponent },
-      { path: 'trainer-list',component: TrainerListComponent}
+      { path: 'trainer-list',component: TrainerListComponent},
 
-      
-      //end Training 
+
+      //end Training
 
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
