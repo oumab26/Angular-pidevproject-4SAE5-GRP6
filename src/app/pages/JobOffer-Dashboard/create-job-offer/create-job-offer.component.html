@@ -3,13 +3,16 @@
     <div class="header-body">
 <a href="#" routerLink="/JobOffer-Dashboard" class="btn btn-primary" style="alignment:right">Back</a>
 <div class="col-md-6 offset-md-3">
+
   <img src="assets/img/2.jpg" style="alignment: center" width="400" >
   <h3 style="color:white">Create Job Offer</h3>
-   <form (ngSubmit)="onSubmit()"   >
+   <form (ngSubmit)="onSubmit()"    >
     <div class="form-group">
 
       <label >titleOffer</label>
       <input  type="text" class="form-control" required id="titleOffer"  [(ngModel)]="JobOffer.titleOffer" name="titleOffer"  >
+
+
 
     </div>
      <div class="row">
@@ -82,7 +85,7 @@
 
 
     <div>
-      <button class="btn btn-primary"  type="submit">Submit</button>
+      <button class="btn btn-primary"  type="submit" >Submit</button>
     </div>
 
   </form>

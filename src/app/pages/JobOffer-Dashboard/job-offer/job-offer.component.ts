@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { JobOffer } from "../../../Model/JobOffer";
 import { JobOfferService } from "../Service/job-offer.service";
 import { Router } from '@angular/router';
@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class JobOfferComponent implements OnInit {
   private data:any;
+
+
   JobOffer: JobOffer[];
   public searchFilter: any = '';
   filterTerm: string;
@@ -50,20 +52,6 @@ export class JobOfferComponent implements OnInit {
     this.p = event;
     this.JobOfferService.getJobOfferList();
   }
-
-
-/**
-
-  deleteJobOffer(idOffer: number) {
-    this.JobOfferService.deleteJobOffer(idOffer).subscribe(
-      data => {
-        console.log(data);
-        this.reloadData();
-      },
-      error => console.log(error));
-  }
-
-**/
 
 
 

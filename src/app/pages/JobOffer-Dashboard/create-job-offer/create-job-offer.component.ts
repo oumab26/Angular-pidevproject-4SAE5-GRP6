@@ -28,6 +28,7 @@ export class CreateJobOfferComponent implements OnInit {
     this.JobOfferService.createJobOffer(this.JobOffer).subscribe(data=>{
         console.log(data);
         this.goToEmployeeList();
+
       },
       error=>console.log(error));
 

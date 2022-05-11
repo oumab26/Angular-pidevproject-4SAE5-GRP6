@@ -3,7 +3,9 @@ import { Condidacy } from "./Condidacy";
 import { Interview } from "./Interview";
 
 export class JobOffer {
-    idOffer: number;
+
+
+  idOffer: number;
     titleOffer: string;
     description: string;
     email: string;
@@ -18,7 +20,7 @@ export class JobOffer {
     recruiter:Recuiter;
      interview:Interview;
      condidacies:Condidacy[];
- 
+
 }
 export enum  Domaine {
     Agriculture, ENSEIGNEMENT, Hôtellerie, Alimentaire, Banque, Chimie, Santé, Télécommunications, Textile, Ingénieurie, Batiment, Art, Artisanat,
@@ -28,7 +30,7 @@ export enum  Domaine {
 
 
 
- 
+
 
 
 
