@@ -31,6 +31,7 @@ export class ForumComponent implements OnInit {
   filtredList:Post[];
   typed;
   locked = false;
+  isVideo:boolean  = false;
   constructor(private activatedRoute:ActivatedRoute,private http:HttpClient,private modalService: NgbModal,private postService:PostServiceService,private formBuilder:FormBuilder){
 
   }
@@ -150,12 +151,21 @@ export class ForumComponent implements OnInit {
 
   onFileChanged(event){
     const file = event.target.files[0];
+    
     this.userFile = file;
+    if(this.userFile.name.includes("mp4")){
+      this.isVideo = true;
+    }
     console.log("file is " + file)
+
   }
 
   addPostTest(){
     console.log("Trying to add post...")
+    if(this.isVideo==true){
+      this.postService.addVideo(this.userFile,this.USER_ID,this.addPostForm.value).subscribe(data=>console.log(data))
+      this.isVideo = false;
+    }
     this.postService.addPost(this.userFile,this.USER_ID,this.addPostForm.value).subscribe(data=>console.log(data))
     //this.activatedRoute.snapshot.paramMap.get("forum");
   }
@@ -190,7 +200,7 @@ export class ForumComponent implements OnInit {
     audio.play();
     console.log("posts number : " + i);
     this.addRating(postId,this.USER_ID,"HIGH");
-    this.activatedRoute.snapshot.paramMap.get("forum");
+    //this.activatedRoute.snapshot.paramMap.get("forum");
   }
 
   meduimRating(i,postId){
@@ -232,9 +242,12 @@ export class ForumComponent implements OnInit {
       this.postService.addEvaluationRating(postId,USER_ID,rating).subscribe(data=>{console.log(data)});
    }
    reactLove(i,postId){
+       
      
-     this.postEvaluation[i].emoji.LOVE = this.postEvaluation[i].emoji.LOVE+1;
-     this.postService.addEvaluationEmoji(postId,this.USER_ID,"LOVE").subscribe(data=>console.log(data));
+      this.postEvaluation[i].emoji.LOVE = this.postEvaluation[i].emoji.LOVE+1;
+      this.postService.addEvaluationEmoji(postId,this.USER_ID,"LOVE").subscribe(data=>console.log(data));
+    
+     
     
    }
 

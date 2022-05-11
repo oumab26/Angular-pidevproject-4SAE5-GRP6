@@ -29,6 +29,15 @@ export class PostServiceService {
     return this.http.post<Post>(this.BASE_URL+"addPostFile/"+userId,content);
   }
 
+  addVideo(file,userId,post){
+    const content :FormData = new FormData();
+    content.append('details',JSON.stringify(post));
+    content.append('file',file);
+    console.log(content);
+    //console.log(this.BASE_URL+"addVideoFile/"+userId)
+    return this.http.post<Post>(this.BASE_URL+"addVideoFile/"+userId,content);
+  }
+
 
 
   deletePost(postId:number){
@@ -88,6 +97,7 @@ export class PostServiceService {
   addEvaluationEmoji(postId,userId,emoji){
     let emojiEvaluation = {};
     emojiEvaluation["emoji"]=emoji;
+    console.log(emojiEvaluation)
     return this.http.post(this.BASE_URL+"evaluatePostEmoji"+"/"+postId+"/"+userId,emojiEvaluation);
 
   }

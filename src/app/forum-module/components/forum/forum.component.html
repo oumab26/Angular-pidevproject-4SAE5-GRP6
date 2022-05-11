@@ -12,7 +12,7 @@
             <a class="nav-link active" aria-current="page" [routerLink]="['/forum']">HomePage</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['chat']">Chat <i class="ml-2 fa fa-comment text-primary" aria-hidden="true"></i>
+            <a class="nav-link" [routerLink]="['chat']">Chat <i class="ml-2 fa fa-comment text-warning" aria-hidden="true"></i>
             </a>
           </li>
           <li class="nav-item">
@@ -95,10 +95,21 @@ start
                                 <div class="d-flex flex-column ml-2"> <span class="font-weight-bold">Jeanette Sun</span> <small class="text-primary">{{post.postTitle}}</small> </div>
                             </div>
                             <div class="d-flex flex-row mt-1 ellipsis"> <small class="mr-2">{{post.postCreationDate | date:'medium'}}</small> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </div>
-                        </div><img [src]="'data:image/jpeg;base64,'+post.postContent">
+                        </div>
+                        <ng-container *ngIf="post.postContentType == 'image/jpeg' || post.postContentType =='image/png'">
+                          <img [src]="'data:image/jpeg;base64,'+post.postContent">
+                        </ng-container>
+                        <ng-container *ngIf="post.postContentType == 'video/mp4'">
+                          <video width="500" preload="true" muted="true" autoplay="true" controls="controls" type="video/mp4"
+                          [src]="'data:video/mp4;base64,'+post.postContent"
+                         ></video>
+                        
+                        </ng-container>
+                        
                         <div class="p-2">
                             <div class="d-flex justify-content-between">
                             <p class="text-justify">{{post.postDescription}}</p>
+
                             <div>
                                 <div *ngIf="postEvaluation[i]!= null && postEvaluation[i].rating!=null && postEvaluation[i].postId == post.postId;else low">
                                     <!-- <ng-container *ngIf="postEvaluation[i].rating | number :'1.0-0'>3" [ngTemplateOutlet]="High"></ng-container>
@@ -108,6 +119,8 @@ start
                                     <ng-container [ngSwitch]="postEvaluation[i].rating | number :'1.0-0'">
                                         <ng-container *ngSwitchCase="4" [ngTemplateOutlet]="High"></ng-container>
                                         <ng-container *ngSwitchCase="3" [ngTemplateOutlet]="meduim"></ng-container>
+                                       
+                                        
                                     </ng-container>
                                     
                                     
@@ -215,4 +228,11 @@ start
     <span class="fa fa-star"></span>
     <span class="fa fa-star"></span>
     <span class="fa fa-star"></span>
+</ng-template>
+
+
+<ng-template #video>
+  <video width="500" preload="true" muted="true" autoplay="true" controls="controls" type="video/mp4"
+  [src]="retrievedVideo"
+ ></video>
 </ng-template>
