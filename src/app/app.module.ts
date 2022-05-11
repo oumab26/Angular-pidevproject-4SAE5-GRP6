@@ -18,6 +18,7 @@ import {FullCalendarModule} from "@fullcalendar/angular";
 
 
 
+11-5
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -35,6 +36,7 @@ import {FullCalendarModule} from "@fullcalendar/angular";
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent,
+
 
 
 

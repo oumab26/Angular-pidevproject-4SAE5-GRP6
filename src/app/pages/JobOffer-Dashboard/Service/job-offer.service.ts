@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JobOffer } from '../../../Model/JobOffer';
 import { Interview} from '../../../Model/Interview';
+import {  HttpEvent, HttpRequest } from '@angular/common/http';
+import {HttpResponse} from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,11 +20,16 @@ export class JobOfferService {
   readonly API_URL = 'http://localhost:8082';
   private baseUrl5 = 'http://localhost:8082/pidevBackEnd/Jobs/Update';
   private baseUrl6 = 'http://localhost:8082/pidevBackEnd/Search/';
+  private baseUrl7 = 'http://localhost:8082/pidevBackEnd/Fav/export/pdf';
 
 
 
   constructor(private http: HttpClient) { }
 
+
+ exportpdfJobOffer():Observable<Blob>{
+   return this.http.get(`${this.API_URL}/Fav/export/pdf`,{responseType:'blob'});
+ }
 
   getJobOffer(idOffer: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${idOffer}`);
@@ -55,6 +63,7 @@ export class JobOfferService {
     return this.http.post(`${this.baseUrl4}`, inter);
 
   }
+
 
 
 
