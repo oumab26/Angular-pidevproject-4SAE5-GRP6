@@ -6,5 +6,6 @@ export class UniRequest {
   cv: any;
   message: any;
   etat: any;
+  UniName:any;
 
 }

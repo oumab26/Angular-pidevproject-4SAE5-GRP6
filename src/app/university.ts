@@ -11,4 +11,6 @@ export class University {
   language: any;
   learnType: any;
   image:any;
+  score:any;
+  code:any;
 }

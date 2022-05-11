@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UniServiceService} from '../../Service/uni-service.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {University} from '../../university';
 import {Observable} from 'rxjs';
+import { countries } from 'src/app/country-data-store';
 
 @Component({
   selector: 'app-univeristy-dashboard',
@@ -15,6 +16,30 @@ export class UniveristyDashboardComponent implements OnInit {
   university!: University;
   form : boolean = false;
   EditUni: University;
+  @Output() newItemEvent = new EventEmitter<string>();
+  UniName:any;
+  usa:any = "us";
+  public countries:any = countries
+  selectedFiles: FileList;
+  currentFile: File;
+  progress = 0;
+
+  addNewItem(Name: string,Lang:string,Fee:string,Dom:string,Date:string,Type:string,Loc:string,Dur:string,Img:string,Learn:string) {
+
+    this.EditUni.universityName = Name
+    this.EditUni.language = Lang
+    this.EditUni.tuitionFee = Fee
+    this.EditUni.domain = Dom
+    this.EditUni.startDate = Date
+    this.EditUni.type = Type
+    this.EditUni.location = Loc
+    this.EditUni.duration = Dur
+    this.EditUni.image = Img
+    this.EditUni.learnType = Learn
+    this.ModifyUniversity()
+
+    console.log(this.EditUni.universityName)
+  }
 
 
   constructor(private uniService: UniServiceService) { }
@@ -34,7 +59,9 @@ export class UniveristyDashboardComponent implements OnInit {
       domain: null,
       language: null,
       image:null,
-      learnType:null
+      learnType:null,
+      score:null,
+      code:null
     }
 
     this.EditUni = {
@@ -48,20 +75,26 @@ export class UniveristyDashboardComponent implements OnInit {
       domain: null,
       language: null,
       image:null,
-      learnType:null
+      learnType:null,
+      score:null,
+      code:null
     }
 
   }
 
   getAllUniversity(){
+
     this.uniService.getAllUniversity().subscribe((res) => {
       this.listUniversity = res
+      this.listUniversity.forEach(x => x.code = (countries.find(z => z.name == x.location).code).toLowerCase())
     })
   }
 
   addUniversity(U : University){
     console.log(U.startDate);
-    this.uniService.addUniversity(U).subscribe(() => this.getAllUniversity());
+    this.progress = 0;
+    this.currentFile = this.selectedFiles.item(0);
+    this.uniService.addUniversity(U,this.currentFile).subscribe(() => this.getAllUniversity());
 
   }
 
@@ -75,14 +108,17 @@ export class UniveristyDashboardComponent implements OnInit {
     console.log(idUniversityOffer)
     this.form = true;
     this.EditUni = this.listUniversity.find(x => x.idUniversityOffer === idUniversityOffer)
-    console.log(this.EditUni.universityName)
-
-
+    console.log(this.EditUni)
   }
 
-  ModifyUniversity(U : University){
+  ModifyUniversity(){
+    this.uniService.ModifyUniveristy(this.EditUni).subscribe(() => this.getAllUniversity());
+    console.log(this.newItemEvent)
+    this.form = false;
+  }
 
-    this.uniService.ModifyUniveristy(U).subscribe(() => this.getAllUniversity());
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
   }
 
 

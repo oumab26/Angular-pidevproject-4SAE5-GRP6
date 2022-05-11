@@ -7,13 +7,19 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/univeristy-dashboard.component';
 import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
+import {FrontUniComponent} from '../../pages/front-uni/front-uni.component';
+import {AddUniReqComponent} from '../../pages/add-uni-req/add-uni-req.component';
+import {MyRequestsComponent} from '../../pages/my-requests/my-requests.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'university-dashboard', component: UniveristyDashboardComponent },
     {path: 'universityReq/:id', component: UniRequestComponent},
+    { path: 'front-uni', component: FrontUniComponent },
+  { path: 'addUniReq/:id', component: AddUniReqComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent },
-    { path: 'maps',           component: MapsComponent }
+    { path: 'maps',           component: MapsComponent },
+    { path: 'My-Requests',    component:  MyRequestsComponent }
 ];

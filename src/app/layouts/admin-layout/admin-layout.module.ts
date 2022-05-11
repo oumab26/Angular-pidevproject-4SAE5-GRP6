@@ -14,6 +14,9 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/univeristy-dashboard.component';
 import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
+import {FrontUniComponent} from '../../pages/front-uni/front-uni.component';
+import {AddUniReqComponent} from '../../pages/add-uni-req/add-uni-req.component';
+import {MyRequestsComponent} from '../../pages/my-requests/my-requests.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -33,6 +36,9 @@ import {UniRequestComponent} from '../../pages/uni-request/uni-request.component
     MapsComponent,
     UniveristyDashboardComponent,
     UniRequestComponent,
+    FrontUniComponent,
+    AddUniReqComponent,
+    MyRequestsComponent,
   ]
 })
 
