@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js';
+import { AuthService } from 'src/app/services/auth.service';
 
 // core components
 import {
@@ -15,14 +16,23 @@ import {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  public users:any
   public datasets: any;
   public data: any;
   public salesChart;
   public clicked: boolean = true;
   public clicked1: boolean = false;
 
+  constructor(private authService:AuthService){}
+
   ngOnInit() {
+    this.authService.getAllUsers().subscribe(result=>{
+      this.users = result
+      
+      console.log(result)
+    })
+
+
 
     this.datasets = [
       [0, 20, 10, 30, 15, 40, 20, 60, 60],
@@ -51,6 +61,17 @@ export class DashboardComponent implements OnInit {
 		});
   }
 
+  delete(id){
+    
+    this.authService.deleteUser(id).subscribe(result=>{
+      console.log(result)
+      this.authService.getAllUsers().subscribe(result=>{
+        this.users = result
+        
+        console.log(result)
+      })
+    })
+  }
 
   public updateOptions() {
     this.salesChart.data.datasets[0].data = this.data;

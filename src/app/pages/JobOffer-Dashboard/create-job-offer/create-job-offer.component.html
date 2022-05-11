@@ -1,0 +1,90 @@
+<div class="header bg-white pb-6 pt-4 pt-md-6">
+  <div class="container-fluid" style="background: #f55540">
+    <div class="header-body">
+<a href="#" routerLink="/JobOffer-Dashboard" class="btn btn-primary" style="alignment:right">Back</a>
+<div class="col-md-6 offset-md-3">
+  <img src="assets/img/2.jpg" style="alignment: center" width="400" >
+  <h3 style="color:white">Create Job Offer</h3>
+   <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label >titleOffer</label>
+      <input type="text" class="form-control" id="titleOffer" required [(ngModel)]="JobOffer.titleOffer" name="titleOffer">
+    </div>
+     <div class="row">
+       <div class="form-group">
+         <label class="form-control-label" >Start Date</label>
+         <input type="date" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}" [(ngModel)]="JobOffer.startDateoffer" class="form-control form-control-alternative" >
+       </div>
+     </div>
+     <div class="row">
+       <div class="form-group">
+         <label class="form-control-label" >Start Date</label>
+         <input type="date" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}" [(ngModel)]="JobOffer.endDateoffer" class="form-control form-control-alternative" >
+       </div>
+     </div>
+    <div class="form-group">
+      <label >description</label>
+      <input type="text" class="form-control" id="description" required [(ngModel)]="JobOffer.description" name="description">
+    </div>
+
+    <div class="form-group">
+      <label >email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="JobOffer.email" name="email">
+    </div>
+
+     <div class="row">
+       <div class="form-group">
+         <label class="form-control-label" >Domaine</label>
+         <br/>
+         <select id="domaine" required [(ngModel)]="JobOffer.domaine" name="domaine">
+           <option VALUE=" Agriculture">Agriculture</option>
+           <option VALUE="Hôtellerie">Hôtellerie</option>
+           <option VALUE="Alimentaire">Alimentaire</option>
+           <option VALUE="Banque">Banque</option>
+           <option VALUE="Chimie">Chimie</option>
+           <option VALUE="Santé">Santé</option>
+           <option VALUE="Télécommunications">Télécommunications</option>
+           <option VALUE="Textile">Textile</option>
+
+           <option VALUE="Ingénieurie">Ingénieurie</option>
+           <option VALUE="Batiment">Batiment</option>
+           <option VALUE="Art">Art</option>
+           <option VALUE="Artisanat">Artisanat</option>
+           <option VALUE="Transport">Transport</option>
+
+           <option VALUE="Industrie">Industrie</option>
+           <option VALUE="Restauration">Restauration</option>
+           <option VALUE="Commerce">Commerce</option>
+           <option VALUE="Tourisme">Tourisme</option>
+           <option VALUE="Sport">Sport</option>
+           <option VALUE="Environement">Environement</option>
+         </select>
+       </div>
+     </div>
+
+    <div class="form-group">
+      <label >addressOffer</label>
+      <input type="text" class="form-control" id="addressOffer" required [(ngModel)]="JobOffer.addressOffer" name="addressOffer">
+    </div>
+     <button routerLink="/inter" class="btn" class="bg-white">  <i class="ni ni-fat-add">Add interview</i></button>
+    <div class="form-group">
+
+      <label >interview</label>
+      <input type="text"  class="form-control" id="interview" required [(ngModel)]="JobOffer.interview" name="interview">
+    </div>
+    <div class="form-group">
+      <label > company</label>
+      <input type="text" class="form-control" id="company" required [(ngModel)]="JobOffer.company" name=" company">
+    </div>
+
+
+
+    <div>
+      <button class="btn btn-primary"  type="submit">Submit</button>
+    </div>
+
+  </form>
+</div>
+    </div>
+  </div>
+</div>
