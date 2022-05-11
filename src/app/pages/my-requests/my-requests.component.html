@@ -1,0 +1,56 @@
+
+<div class="header bg-gradient-default pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--7">
+  <div class="row">
+
+   <div class="col-xl-8 mb-5 mb-xl-0">
+      <div class="card shadow">
+
+<div class="table-responsive">
+  <table class="table align-items-center table-dark table-flush">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Univeristy Name</th>
+      <th scope="col">State of request</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor='let R of listRequest'>
+      <th scope="row">
+        <div class="media align-items-center">
+          <a href="#" class="avatar rounded-circle mr-3">
+            <img alt="Image placeholder" src="assets/img/theme/bootstrap.jpg">
+          </a>
+          <div class="media-body">
+            <span class="mb-0 text-sm">{{R.UniName}}</span>
+          </div>
+        </div>
+      </th>
+      <td>
+        <div *ngIf="R.etat; else elseBlock">
+          <span class="badge badge-dot">
+              <i class="bg-success"></i> Accepted
+          </span>
+        </div>
+        <ng-template #elseBlock>
+          <span class="badge badge-dot mr-4">
+              <i class="bg-danger"></i> Unaccepted
+          </span>
+        </ng-template>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+</div>
+    </div>
+  </div>
+</div>
