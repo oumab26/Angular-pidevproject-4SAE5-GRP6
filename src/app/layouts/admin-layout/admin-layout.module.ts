@@ -38,6 +38,18 @@ import interactionPlugin from '@fullcalendar/interaction';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 
+//Begin Training section
+
+import { DatePipe } from '@angular/common';
+
+import { CreateQuizComponent } from '../../pages/Training-Dashboard/create-quiz/create-quiz.component';
+import { QuizDetailsComponent } from '../../pages/Training-Dashboard/quiz-details/quiz-details.component';
+import { QuizListComponent } from '../../pages/Training-Dashboard/quiz-list/quiz-list.component';
+import { UpdateQuizComponent } from '../../pages/Training-Dashboard/update-quiz/update-quiz.component';
+import { TrainerListComponent } from '../../pages/Training-Dashboard/trainer-list/trainer-list.component';
+
+//End Training section
+
 @NgModule({
   imports: [
     CommonModule,
@@ -58,6 +70,15 @@ import {NgxPaginationModule} from 'ngx-pagination';
     TablesComponent,
     IconsComponent,
     MapsComponent,
+
+   CreateQuizComponent,
+    QuizDetailsComponent,
+    QuizListComponent,
+    UpdateQuizComponent,
+    TrainerListComponent
+  ],
+  providers: [DatePipe]
+
     UniveristyDashboardComponent,
     UniRequestComponent,
 
@@ -74,6 +95,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 
   ]
+
 })
 
 export class AdminLayoutModule {}

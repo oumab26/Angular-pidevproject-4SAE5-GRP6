@@ -20,6 +20,15 @@ import {JobOfferDetailsComponent} from "../../pages/JobOffer-Dashboard/job-offer
 import { CalendrierComponent } from 'src/app/pages/JobOffer-Dashboard/calendrier/calendrier.component';
 
 
+
+//Begin Training section
+import { CreateQuizComponent } from '../../pages/Training-Dashboard/create-quiz/create-quiz.component';
+import { QuizDetailsComponent } from '../../pages/Training-Dashboard/quiz-details/quiz-details.component';
+import { QuizListComponent } from '../../pages/Training-Dashboard/quiz-list/quiz-list.component';
+import { UpdateQuizComponent } from '../../pages/Training-Dashboard/update-quiz/update-quiz.component';
+import { TrainerListComponent } from '../../pages/Training-Dashboard/trainer-list/trainer-list.component';
+//End Training section
+
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
 /**ouma balti**/
@@ -37,9 +46,25 @@ export const AdminLayoutRoutes: Routes = [
   { path: 'addUniReq/:id', component: AddUniReqComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
+
+    { path: 'quiz-list',          component: QuizListComponent },
+    { path: 'maps',           component: MapsComponent },
+
+      //begin Training
+      { path: '', redirectTo: 'quizs', pathMatch: 'full' },
+      { path: 'quizs', component: QuizListComponent },
+      { path: 'add', component: CreateQuizComponent },
+      { path: 'update/:id', component: UpdateQuizComponent },
+      { path: 'details/:id', component: QuizDetailsComponent },
+      { path: 'trainer-list',component: TrainerListComponent}
+
+      
+      //end Training 
+
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'My-Requests',    component:  MyRequestsComponent },
   { path: 'UniversityDashboard',    component:  UniveristyDashboardComponent }
+
 
 ];

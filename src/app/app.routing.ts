@@ -9,16 +9,24 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import {UniveristyDashboardComponent} from './pages/univeristy-dashboard/univeristy-dashboard.component';
 import {AppModule} from './app.module';
 
+
+
+
+
 const routes: Routes =[
-  {
+   {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
+
+  }, 
+
   },
   
   { path: 'forum',loadChildren: () => import('src/app/forum-module/forum-module.module').then(m => m.ForumModuleModule) }
   ,
   
+
   {
     path: '',
     component: AdminLayoutComponent,
@@ -41,7 +49,10 @@ const routes: Routes =[
   }, {
     path: '**',
     redirectTo: 'dashboard'
-  }
+  } 
+
+
+ 
 ];
 
 @NgModule({
@@ -53,6 +64,7 @@ const routes: Routes =[
     })
   ],
   exports: [
+    RouterModule //added by mona
   ],
 })
 export class AppRoutingModule { }

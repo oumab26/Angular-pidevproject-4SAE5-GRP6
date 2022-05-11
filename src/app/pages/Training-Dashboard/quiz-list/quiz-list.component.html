@@ -1,0 +1,131 @@
+
+<!--
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Quiz List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Quiz Label </th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let quiz of quizs">
+            <td>{{quiz.quizId}}</td>
+            <td>{{quiz.quizName}}</td>
+            <td>
+              
+              <button (click)="deleteQuiz(quiz.quizId)" class="btn btn-danger">Delete</button>
+              <button (click)="updateQuiz(quiz.quizId)" class = "btn btn-primary"> Update</button>
+              <button (click)="quizDetails(quiz.quizId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <!---functions deleteQuiz and quizDetails to define!!!!->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+-->
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!--start Training Menu-->
+
+      <div class="text-center ">
+
+
+        <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
+          <span class="btn-inner--icon"><img src="assets/img/icons/common/github.svg"></span>
+          <span class="btn-inner--text">Trainings</span>
+        </a>
+
+
+
+      
+        <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
+          <span class="btn-inner--icon"><img src="assets/img/icons/common/google.svg"></span>
+          <span class="btn-inner--text">Quiz List</span>
+        </a>
+        <a routerLinkActive="active" routerLink="/trainer-list" class="btn btn-neutral btn-icon mr-4">
+          <span class="btn-inner--icon"><img src="assets/img/icons/common/google.svg"></span>
+          <span class="btn-inner--text">Trainers</span>
+        </a>
+      </div>
+      <!--end Training Menu-->
+      <!-- Card stats -->
+      <div class="row  "   >
+        <div class="col-xl-3 col-lg-6 mt-4 "  *ngFor="let quiz of quizs"  >
+          <div class="card card-stats mb-4 mb-xl-0" >
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">{{quiz.quizName}}</h5>
+                  <span class="h2 font-weight-bold mb-0">350,897</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="float-right btn-group btn-group-sm">
+                <button  (click)="quizDetails(quiz.quizId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <button  (click)="updateQuiz(quiz.quizId)" class="btn btn-danger" style="margin-left: 10px">Update</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Dark table -->
+  <div hidden="true" class="row mt-5" >
+    
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">Details</h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Quiz Name</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                      <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                    </a>
+                    <div class="media-body">
+                      <span class="mb-0 text-sm">Argon Design System</span>
+                    </div>
+                  </div>
+                </th>
+                <td>
+                  $2,500 USD
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+  </div>
+
+

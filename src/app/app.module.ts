@@ -24,6 +24,8 @@ import {FullCalendarModule} from "@fullcalendar/angular";
 
 
 
+
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -33,13 +35,18 @@ import {FullCalendarModule} from "@fullcalendar/angular";
     NgbModule,
     RouterModule,
     AppRoutingModule,
+
     Ng2SearchPipeModule,
     NgxPaginationModule,
     FullCalendarModule
+
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+
+    AuthLayoutComponent,
+
     AuthLayoutComponent,
 
 
