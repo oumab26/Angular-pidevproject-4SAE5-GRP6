@@ -1,0 +1,55 @@
+
+
+
+<!--    -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="https://i.imgur.com/UXdKE3o.jpg" width="50" class="rounded-circle"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/forum']">HomePage</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/chat']">Chat <i class="ml-2 fa fa-comment text-warning" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard
+            </a>
+          </li>
+        </ul>
+    
+      </div>
+    </div>
+  </nav>
+
+  <main class="chat">
+    <div class="container">
+        <div class="chat-content">
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" *ngFor="let chatMessage of webSocketService.chatMessages">
+                    <strong>{{chatMessage.user}}: </strong>
+                    <span>{{chatMessage.message}}</span>
+                </li>
+                </ul>
+            </div>
+        </div>
+        <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+            <div class="chat-send row">
+                
+                <div class="col-8">
+                    <input type="text" class="form-control" name="message" id="input-message" ngModel>
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</main>

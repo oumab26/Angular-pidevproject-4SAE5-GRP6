@@ -1,0 +1,129 @@
+@import "~font-awesome/css/font-awesome.css";
+*{
+    z-index: 1;
+}
+body {
+    background: #eee;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300
+}
+
+.card {
+    border: none
+}
+
+.ellipsis {
+    color: #a09c9c
+}
+
+hr {
+    color: #a09c9c;
+    margin-top: 4px;
+    margin-bottom: 8px
+}
+
+.muted-color {
+    color: #a09c9c;
+    font-size: 13px
+}
+
+.ellipsis i {
+    margin-top: 3px;
+    cursor: pointer
+}
+
+.icons i {
+    font-size: 25px
+}
+
+.icons .fa-heart {
+    color: red
+}
+
+.icons .fa-smile-o {
+    color: yellow;
+    font-size: 29px
+}
+
+.rounded-image {
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px
+}
+
+.name {
+    font-weight: 600
+}
+
+.comment-text {
+    font-size: 12px
+}
+
+.status small {
+    margin-right: 10px;
+    color: blue
+}
+
+.form-control {
+    border-radius: 26px
+}
+
+.comment-input {
+    position: relative
+}
+
+.fonts {
+    position: absolute;
+    right: 13px;
+    top: 8px;
+    color: #a09c9c
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #8bbafe;
+    outline: 0;
+    box-shadow: none
+}
+
+.modal-backdrop + .modal-backdrop {
+    z-index: 1040;
+  }
+  .modal + .modal {
+    z-index: 1050;
+  }
+
+
+  ::ng-deep ngb-modal-backdrop {
+    z-index: 999 !important;
+  
+  }
+  ::ng-deep ngb-modal-window{
+    z-index: 999 !important;
+  
+  }
+
+
+  .checked {
+    color: rgb(255, 251, 0);
+  }
+
+  .red{
+      color:#ff1493;
+  }
+
+  .black{
+      color:black;
+  }
+
+  .green{
+      color: #39ff14;
+  }
+
+  .orange{
+    color:#ff4500;
+  }

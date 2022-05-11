@@ -1,0 +1,26 @@
+use {
+    &:nth-child(2) {
+      transform: translate(20px);
+    }
+    &:nth-child(3) {
+      transform: translate(40px);
+    }
+    &:nth-child(4) {
+      transform: translate(60px);
+    }
+    &:nth-child(5) {
+      transform: translate(80px);
+    }
+  }
+  
+  .rating {
+    background:blue;
+    display: block;
+    height: 20px;
+    margin: 0.75rem auto;
+    width: 100px;
+  }
+ 
+  
+  
+  
