@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { JobOffer } from '../../../Model/JobOffer';
 import { Router } from '@angular/router';
 import { JobOfferService } from "../../JobOffer-Dashboard/Service/job-offer.service";
@@ -9,7 +9,6 @@ import { JobOfferService } from "../../JobOffer-Dashboard/Service/job-offer.serv
   styleUrls: ['./create-job-offer.component.scss']
 })
 export class CreateJobOfferComponent implements OnInit {
-
   JobOffer: JobOffer = new JobOffer();
 
 
@@ -25,18 +24,21 @@ export class CreateJobOfferComponent implements OnInit {
   }
 
   saveEmployee(){
+
     this.JobOfferService.createJobOffer(this.JobOffer).subscribe(data=>{
         console.log(data);
         this.goToEmployeeList();
       },
       error=>console.log(error));
+
   }
   goToEmployeeList(){
-    this.router.navigate(['/JobOffer']);
+    this.router.navigate(['/JobOffer-Dashboard']);
   }
   onSubmit(){
     console.log(this.JobOffer);
     this.saveEmployee();
+
   }
 
 

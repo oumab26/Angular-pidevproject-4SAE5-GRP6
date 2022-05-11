@@ -30,13 +30,13 @@
 
     <div class="form-group">
       <label >email</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="jobOffer.email" name="email">
+      <input type="email" class="form-control" id="email" required [(ngModel)]="jobOffer.email" name="email" required>
     </div>
     <div class="row">
       <div class="form-group">
         <label class="form-control-label" >Domaine</label>
         <br/>
-        <select id="domaine" required [(ngModel)]="jobOffer.domaine" name="domaine">
+        <select id="domaine" required [(ngModel)]="jobOffer.domaine" name="domaine" required>
           <option VALUE=" Agriculture">Agriculture</option>
           <option VALUE="Hôtellerie">Hôtellerie</option>
           <option VALUE="Alimentaire">Alimentaire</option>
