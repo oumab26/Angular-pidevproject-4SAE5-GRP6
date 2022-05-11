@@ -1,0 +1,394 @@
+
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
+                  <span class="h2 font-weight-bold mb-0">350,897</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                  <span class="h2 font-weight-bold mb-0">2,356</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                    <i class="fas fa-chart-pie"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i> 3.48%</span>
+                <span class="text-nowrap">Since last week</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                  <span class="h2 font-weight-bold mb-0">924</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                    <i class="fas fa-users"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-warning mr-2"><i class="fas fa-arrow-down"></i> 1.10%</span>
+                <span class="text-nowrap">Since yesterday</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                  <span class="h2 font-weight-bold mb-0">49,65%</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                    <i class="fas fa-percent"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3 mb-0 text-muted text-sm">
+                <span class="text-success mr-2"><i class="fas fa-arrow-up"></i> 12%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mt--7">
+
+
+  <div class="row">
+
+      <div class="col-xl-8 mb-5 mb-xl-0">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0">University List</h3>
+              </div>
+
+            </div>
+          </div>
+          <div class="table-responsive">
+            <!-- Projects table -->
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+              <tr>
+                <th scope="col">University Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Options</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor='let U of listUniversity'>
+                <td>
+                  {{U.universityName }}
+                </td>
+                <td>
+                  {{U.location}}  <span class="flag-icon flag-icon-{{U.code}} flag-icon-squared"></span>
+                </td>
+                <td>
+                  {{U.startDate}}
+                </td>
+                <td>
+                  <a  class="btn btn-sm btn-danger" (click)="deleteUniversity(U.idUniversityOffer)">DELETE</a>
+                  <a  class="btn btn-sm btn-primary" (click)="FindUni(U.idUniversityOffer)">Update</a>
+                  <a class="btn btn-sm btn-2 btn-warning" routerLink='/universityReq/{{U.idUniversityOffer}}' type="button">
+                    <span class="btn-inner--icon"><i class="ni ni-paper-diploma"></i></span>
+                  </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <div class="col-xl-4">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">University</h6>
+              <h2 class="mb-0">ADD UNIVERSITY</h2>
+            </div>
+            <div class="col-4 text-right">
+              <a href="#!" class="btn btn-sm btn-primary" (click)="addUniversity(university)">Add</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Chart -->
+          <div class="card-body">
+            <form>
+              <h6 class="heading-small text-muted mb-4">University information</h6>
+              <div class="pl-lg-4">
+
+                <div class="row">
+                    <div class="form-group">
+                      <label class="form-control-label" >University Name</label>
+                      <input type="text" [(ngModel)]="university.universityName" class="form-control form-control-alternative" >
+                    </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Language</label>
+                    <select [(ngModel)]="university.language">
+                      <option VALUE="ENGLISH">ENGLISH</option>
+                      <option VALUE="FRENCH">FRENCH</option>
+                      <option VALUE="SPANISH">SPANISH</option>
+                      <option VALUE="ARABIC">ARABIC</option>
+                      <option VALUE="GERMAN">GERMAN</option>
+                      <option VALUE="RUSSIAN">RUSSIAN</option>
+                      <option VALUE="ITALIAN">ITALIAN</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Fee</label>
+                    <input type="text" [(ngModel)]="university.tuitionFee" class="form-control form-control-alternative" >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Domain</label>
+                    <select [(ngModel)]="university.domain">
+                      <option VALUE="IT">IT</option>
+                      <option VALUE="EDUCATION">EDUCATION</option>
+                      <option VALUE="FINANCE">FINANCE</option>
+                      <option VALUE="MECHANICAL">MECHANICAL</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Start Date</label>
+                    <input type="date" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}" [(ngModel)]="university.startDate" class="form-control datepicker" >
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Type</label>
+                    <select [(ngModel)]="university.type">
+                      <option VALUE="FULLTIME">FULLTIME</option>
+                      <option VALUE="PARTTIME">PARTTIME</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Location</label>
+                    <!--<input type="text" [(ngModel)]="university.location" class="form-control form-control-alternative" >-->
+                    <select class="form-control" name="country" id="country" [(ngModel)]="university.location">
+                      <option value="" disabled selected>Select Country</option>
+                      <option *ngFor="let country of countries" [value]="country.name">{{country.name}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Duration</label>
+                    <input type="text" [(ngModel)]="university.duration" class="form-control form-control-alternative">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >Image</label>
+                    <input type="text" [(ngModel)]="university.image" class="form-control form-control-alternative" >
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group">
+                    <label class="form-control-label" >LearnType</label>
+                    <select [(ngModel)]="university.learnType">
+                      <option VALUE="OnCampus">OnCampus</option>
+                      <option VALUE="Online">Online</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-control-label" >CV</label>
+                    <input type="file" (change)="selectFile($event)" />
+                  </div>
+
+                </div>
+
+              </div>
+            </form>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="col-xl-8 order-xl-1"  *ngIf="form">
+    <div class="card bg-secondary shadow">
+      <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+          <div class="col-8">
+            <h3 class="mb-0">My account</h3>
+          </div>
+          <div class="col-4 text-right">
+            <a class="btn btn-sm btn-primary" (click)="addNewItem(UniName.value,UniLang.value,UniFee.value,UniDom.value,UniDate.value,UniType.value,UniLoc.value,UniDur.value,UniImg.value,UniLearn.value)">Edit</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form>
+          <h6 class="heading-small text-muted mb-4">User information</h6>
+          <div class="pl-lg-4">
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Univeristy Name</label>
+                  <input type="text"  value={{EditUni.universityName}} class="form-control form-control-alternative" #UniName>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Language</label>
+                  <input type="text"  value={{EditUni.language}} #UniLang  class="form-control form-control-alternative" >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" >Fee</label>
+                  <input type="text" value={{EditUni.tuitionFee}} #UniFee class="form-control form-control-alternative" >
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Domain</label>
+                  <input type="text"  class="form-control form-control-alternative" #UniDom value={{EditUni.domain}}>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Start Date</label>
+                  <input type="text"  class="form-control form-control-alternative" #UniDate value={{EditUni.startDate}}>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Type</label>
+                  <input type="email" class="form-control form-control-alternative" #UniType value={{EditUni.type}}>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Location</label>
+                  <input type="text" class="form-control form-control-alternative" #UniLoc value={{EditUni.location}}>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" >Duration</label>
+                  <input type="email" class="form-control form-control-alternative" #UniDur value={{EditUni.duration}}>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">image</label>
+                  <input type="text" class="form-control form-control-alternative" #UniImg value={{EditUni.image}}>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" >Learn Type</label>
+                  <input type="email" class="form-control form-control-alternative" #UniLearn value={{EditUni.learnType}}>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <hr class="my-4" />
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <h2>
+    India flag icon -> <span class="flag-icon flag-icon-{{usa}} flag-icon-squared"></span>
+    <br/>
+    France flag icon -> <span class="flag-icon flag-icon-fr flag-icon-squared"></span>
+    <br/>
+    Australia flag icon -> <span class="flag-icon flag-icon-au flag-icon-squared"></span>
+    <br/>
+    United Kingdom flag icon -> <span class="flag-icon flag-icon-gb flag-icon-squared"></span>
+  </h2>
+
+
+</div>
+

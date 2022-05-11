@@ -8,11 +8,13 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
+
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
+
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -31,24 +33,32 @@
             ],
             "styles": [
               "src/styles.scss",
+
               "src/assets/scss/argon.scss"
               
+
+              "src/assets/scss/argon.scss",
+
+              "node_modules/flag-icon-css/css/flag-icons.min.css",
+
+              "node_modules/sweetalert2/src/sweetalert2.scss"
+
+
+
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.min.js",
-              "node_modules/clipboard/dist/clipboard.min.js"
+              "node_modules/clipboard/dist/clipboard.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.js"
             ]
           },
           "configurations": {
             "production": {
               "optimization": {
                 "scripts": true,
-                "styles": {
-                  "minify": false,
-                  "inlineCritical": false
-                },
-                "fonts": true
-              },
+                 "styles": true,
+                 "fonts": false
+             },
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
@@ -161,11 +171,13 @@
     }
   },
   "defaultProject": "argon-dashboard-angular",
+
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"
     }
   },
+
   "cli": {
     "analytics": false
   }

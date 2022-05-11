@@ -1,0 +1,94 @@
+
+<div class="header bg-gradient-default pb-8 pt-5 pt-md-8">
+
+</div>
+<div class="container-fluid mt--7">
+
+  <div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <div class="input-group mb-4">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+        </div>
+        <input class="form-control" placeholder="Search" type="text">
+      </div>
+    </div>
+  </div>
+    <div>
+      <button placement="top" ngbTooltip="Sort By Tuition Fees Descending" class="btn btn-icon btn-2 btn-secondary" type="button" (click)="Sort('tuitionFee','DESC')">
+        <span class="btn-inner--icon"><i class="ni ni-bold-down"></i></span>
+      </button>
+      <button placement="top" ngbTooltip="Sort By Tuition Fees Ascending" class="btn btn-icon btn-2 btn-secondary" type="button" (click)="Sort('tuitionFee','ASC')">
+        <span class="btn-inner--icon"><i class="ni ni-bold-up"></i></span>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="row">
+
+
+
+    <div class="col-xl-3 col-lg-5" *ngFor='let U of listUniversity'>
+      <div class="card card-stats mb-8 mb-xl-5">
+    <div class="card" style="width: 18rem;" >
+      <img class="card-img-top" src="assets/img/theme/{{U.domain}}.png" alt="Card image cap" width="400" height="200">
+      <div class="card-body">
+        <h2 class="card-title"> <i class="ni ni-hat-3"></i>   {{U.universityName}}  <span class="flag-icon flag-icon-{{U.code}} flag-icon-squared"></span></h2>
+        <h4 class="card-text"><i class="ni ni-world"></i>   Language: {{U.language}}</h4>
+        <h4 class="card-text"><i class="ni ni-chart-bar-32"></i>   Domain: {{U.domain}}</h4>
+        <h4 class="card-text"><i class="ni ni-money-coins"></i>   Fees: {{U.tuitionFee}}</h4>
+        <h4 class="card-text"><i class="ni ni-satisfied"></i>   Rating: {{U.score}}/5</h4>
+        <div class="star-rating" *ngIf="U.idUniversityOffer == EditUni.idUniversityOffer">
+          <input type="radio" id="5-stars" name="rating" (click)="RateUniOff(5)"/>
+          <label for="5-stars" class="star">&#9733;</label>
+          <input type="radio" id="4-stars" name="rating" (click)="RateUniOff(4)"/>
+          <label for="4-stars" class="star">&#9733;</label>
+          <input type="radio" id="3-stars" name="rating" (click)="RateUniOff(3)"/>
+          <label for="3-stars" class="star">&#9733;</label>
+          <input type="radio" id="2-stars" name="rating" (click)="RateUniOff(2)"/>
+          <label for="2-stars" class="star">&#9733;</label>
+          <input type="radio" id="1-star" name="rating" (click)="RateUniOff(1)"/>
+          <label for="1-star" class="star">&#9733;</label>
+        </div>
+        <a class="btn btn-default" (click)="FindUni(U.idUniversityOffer)">Rate</a>
+        <a class="btn btn-default" routerLink='/addUniReq/{{U.idUniversityOffer}}'>Apply</a>
+      </div>
+    </div>
+      </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <i class="fa fa-angle-left"></i>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+
+      <li *ngFor="let i of pagination(NumberOfElements).keys()" class="page-item">
+        <a class="page-link" (click)="PaginationEngine(i)">{{i}}</a>
+      </li>
+      <!--<li class="page-item"><a class="page-link" href="#">2</a></li>-->
+      <!--<li class="page-item"><a class="page-link" href="#">3</a></li>-->
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <i class="fa fa-angle-right"></i>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+</div>
+

@@ -12,7 +12,31 @@ import { MapsComponent } from '../../pages/maps/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {UniveristyDashboardComponent} from '../../pages/univeristy-dashboard/univeristy-dashboard.component';
+import {UniRequestComponent} from '../../pages/uni-request/uni-request.component';
+
+import {FrontUniComponent} from '../../pages/front-uni/front-uni.component';
+import {AddUniReqComponent} from '../../pages/add-uni-req/add-uni-req.component';
+import {MyRequestsComponent} from '../../pages/my-requests/my-requests.component';
+
+import {JobOfferComponent} from '../../pages/JobOffer-Dashboard/job-offer/job-offer.component';
+
 // import { ToastrModule } from 'ngx-toastr';
+import { FullCalendarModule } from '@fullcalendar/angular';
+//import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+FullCalendarModule.registerPlugins([interactionPlugin, dayGridPlugin]);
+import { CalendrierComponent  } from 'src/app/pages/JobOffer-Dashboard/calendrier/calendrier.component';
+
+import {CreateJobOfferComponent} from '../../pages/JobOffer-Dashboard/create-job-offer/create-job-offer.component';
+import {JobOfferDetailsComponent} from "../../pages/JobOffer-Dashboard/job-offer-details/job-offer-details.component";
+import {CreateInterviewComponent} from "../../pages/JobOffer-Dashboard/create-interview/create-interview.component";
+import {UpdateJobOfferComponent} from "../../pages/JobOffer-Dashboard/update-job-offer/update-job-offer.component";
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+//import {NgxPaginationModule} from "ngx-pagination";
+import interactionPlugin from '@fullcalendar/interaction';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 //Begin Training section
 
@@ -33,7 +57,12 @@ import { TrainerListComponent } from '../../pages/Training-Dashboard/trainer-lis
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ClipboardModule
+    ClipboardModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    FullCalendarModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     DashboardComponent,
@@ -41,6 +70,7 @@ import { TrainerListComponent } from '../../pages/Training-Dashboard/trainer-lis
     TablesComponent,
     IconsComponent,
     MapsComponent,
+
    CreateQuizComponent,
     QuizDetailsComponent,
     QuizListComponent,
@@ -48,6 +78,24 @@ import { TrainerListComponent } from '../../pages/Training-Dashboard/trainer-lis
     TrainerListComponent
   ],
   providers: [DatePipe]
+
+    UniveristyDashboardComponent,
+    UniRequestComponent,
+
+    FrontUniComponent,
+    AddUniReqComponent,
+    MyRequestsComponent,
+
+    JobOfferComponent,
+    CreateJobOfferComponent,
+    UpdateJobOfferComponent,
+    JobOfferDetailsComponent,
+    CreateInterviewComponent,
+    CalendrierComponent ,
+
+
+  ]
+
 })
 
 export class AdminLayoutModule {}

@@ -13,6 +13,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
+import { AddUniReqComponent } from './pages/add-uni-req/add-uni-req.component';
+import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
+
+
+
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { NgxPaginationModule } from 'ngx-pagination';
+import {FullCalendarModule} from "@fullcalendar/angular";
+
+
 
 
 
@@ -25,13 +35,26 @@ import { ComponentsModule } from './components/components.module';
     NgbModule,
     RouterModule,
     AppRoutingModule,
- 
+
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    FullCalendarModule
+
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
-   
+
+    AuthLayoutComponent,
+
+    AuthLayoutComponent,
+
+
+
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
