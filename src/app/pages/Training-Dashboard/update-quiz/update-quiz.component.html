@@ -1,0 +1,17 @@
+<h3>Update Quiz</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Quiz Id</label>
+      <input type="text" class="form-control" id="quizId" required [(ngModel)]="quiz.quizId" name="quizId">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Quiz Label</label>
+      <input type="text" class="form-control" id="quizName" required [(ngModel)]="quiz.quizName" name="quizName">
+    </div>
+
+ 
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

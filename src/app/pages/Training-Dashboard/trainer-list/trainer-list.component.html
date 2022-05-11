@@ -1,0 +1,461 @@
+<div class="header bg-gradient-danger pb-4 pt-5 pt-md-8">
+    <div class="container-fluid ">
+        <div class="header-body">
+
+
+            <div class="text-center">
+                <a href="javascript:void(0)" class="btn btn-neutral btn-icon mr-4">
+                    <span class="btn-inner--icon"><img src="assets/img/icons/common/github.svg"></span>
+                    <span class="btn-inner--text">Trainings</span>
+                </a>
+
+                <a href="javascript:void(0)" class="btn btn-neutral btn-icon mr-4">
+                    <span class="btn-inner--icon"><img src="assets/img/icons/common/google.svg"></span>
+                    <span class="btn-inner--text">Quiz List</span>
+                </a>
+                <a routerLinkActive="active" routerLink="/trainer-list" class="btn btn-neutral btn-icon mr-4">
+                    <span class="btn-inner--icon"><img src="assets/img/icons/common/google.svg"></span>
+                    <span class="btn-inner--text">Trainers</span>
+                </a>
+            </div>
+
+            <!--  Begin Trainer Cards -->
+            <div class="row  ">
+                <div class="col-xl-3 col-lg-6 mt-4 " *ngFor="let trainer of trainers">
+                    <div class="card card-stats mb-4 mb-xl-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title text-uppercase text-muted mb-0">{{trainer.userName}}</h5>
+                                    <span class="h2 font-weight-bold mb-0">{{trainer.job}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                        <i class="fas fa-chart-bar"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="float-right btn-group btn-group-sm">
+                                <button (click)="displayAllTrainers()" class="btn btn-warning"
+                                    style="margin-left: 10px">Details</button>
+                                <button (click)="displayAllTrainers()" class="btn btn-info"
+                                    style="margin-left: 10px">Update</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Trainer Cards-->
+        </div>
+
+    </div>
+
+    <div style="float: right;  margin-right: 2px; color:azure; font-size: px;">
+        <button (click)="displayAddForm()" class="btn btn-success mr-3">
+            <span class="btn-inner--icon">Add trainer <i class="ni ni-fat-add"></i></span>
+        </button>
+        <button (click)="displayAllTrainers()" class="btn btn-info mr-3"> Display Details All Trainers</button>
+
+
+    </div>
+    <!--Begin ADD FORM-->
+    <div class="col-xl-8 order-xl-1 mt-8  " [hidden]="addFormIsHidden">
+        <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+                <div class="row align-items-center">
+                    <div class="col-8">
+                        <h3 class="mb-0">New Trainer</h3>
+                    </div>
+                    <div class="col-4 text-right">
+                        <button (click)="hideAddForm()" class="btn btn-sm btn-primary">hide</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <!--  private String userName-->
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-username">Name</label>
+
+                                    <!--<input type="text" id="input-username" class="form-control form-control-alternative"
+                                        placeholder="Name" value="enter name.."-->
+
+                                    <input type="text" [(ngModel)]="trainerToAdd.userName"
+                                        class="form-control form-control-alternative">
+
+
+                                </div>
+                            </div>
+                            <!--private String email-->
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-email">Email address</label>
+                                    <input type="email" id="input-email" class="form-control form-control-alternative"
+                                        placeholder="jesse@example.com" [(ngModel)]="trainerToAdd.email">
+                                </div>
+                            </div>
+                            <!-- private int fonenumber -->
+
+
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-number">Phone Number</label>
+                                    <input type="email" id="input-number" class="form-control form-control-alternative"
+                                        placeholder="enter your number.." [(ngModel)]="trainerToAdd.fonenumber">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!--  private String educationlevel-->
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-education-level">Education
+                                        Level</label>
+                                    <input type="text" id="input-education-level"
+                                        class="form-control form-control-alternative" placeholder="education level.."
+                                        [(ngModel)]="trainerToAdd.educationlevel">
+                                </div>
+                            </div>
+                            <!--private Domain domain;-->
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-domain">Domain</label>
+                                    <!--<input type="text" id="input-domain" class="form-control form-control-alternative"
+                                        placeholder="domain..">-->
+
+
+                                    <select class="form-control form-control-alternative"
+                                        [(ngModel)]="trainerToAdd.domain">
+                                        <option value="" disabled selected>Select your domain..</option>
+                                        <option VALUE="IT">IT</option>
+                                        <option VALUE="PersonalDevelopment">PersonalDevelopment</option>
+                                        <option VALUE="SoftSkills">SoftSkills</option>
+                                        <option VALUE="Finance">Finance</option>
+                                        <option VALUE="Sewing_Knitting">Sewing_Knitting</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!--private String job-->
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-job">Job</label>
+                                    <input type="text" id="input-job" class="form-control form-control-alternative"
+                                        placeholder="Which position to accupy.." [(ngModel)]="trainerToAdd.job">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <!--private String userName-->
+                            <div class="col-lg-4">
+                                <!--<div class="form-group">
+                                    <label class="form-control-label" for="input-username">Date Of Birth</label>
+                                    <input type="text" id="input-username" class="form-control form-control-alternative"
+                                        placeholder="Name" value="enter name..">
+                                </div>-->
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-username">Date Of Birth</label>
+                                    <div class="input-group input-group-alternative">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+
+                                        <!--<input type="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                                            [(ngModel)]="selectedTrainer.DateOfBirth"
+                                            class="form-control form-control-alternative">-->
+
+                                        <input type="date" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"
+                                            [(ngModel)]="trainerToAdd.DateOfBirth" class="form-control datepicker">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4" />
+
+                    <!-- Address -->
+                    <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <!-- private String adresse-->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-address">Address</label>
+                                    <input id="input-address" class="form-control form-control-alternative"
+                                        placeholder="Home Address" type="text" [(ngModel)]="trainerToAdd.adresse">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <!-- private String country;-->
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-country">Country</label>
+                                    <input type="text" id="input-country" class="form-control form-control-alternative"
+                                        placeholder="Country" value="Tunisia" [(ngModel)]="trainerToAdd.country">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </form>
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0">Data Confirmation</h3>
+                        </div>
+                        <div class="col-4 text-right">
+                            <button (click)="addTrainer(trainerToAdd)" class="btn btn-sm btn-success">Upload</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--End ADD FORM-->
+</div>
+
+
+
+
+
+<!-- Table for Listing All Trainers -->
+
+<div class="row mt-5" [hidden]="completeList_isHidden">
+
+    <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+            <h3 class="text-white mb-0">Details</h3>
+        </div>
+        <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+            <div class="form-group mb-0">
+                <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="Search" type="text">
+                </div>
+            </div>
+        </form>
+
+        <div class="table-responsive">
+            <table class="table align-items-center table-dark table-flush">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Domain of Training</th>
+                        <th scope="col">Job</th>
+                        <th scope="col">Education Level</th>
+                        <th scope="col">Adddress</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">DateOfBirth</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let trainer of trainers">
+                        <tr *ngIf="trainer.active==1">
+                            <th scope="row">
+                                <div class="media align-items-center">
+                                    <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                                        <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                                    </a>
+                                    <div class="media-body">
+                                        <span class="mb-0 text-sm">{{trainer.userName}}</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <td>
+                                {{trainer.domain}}
+                            </td>
+                            <td>
+                                {{trainer.job}}
+                            </td>
+                            <td>
+                                <input type="text" class="badge badge-dot mr-4">
+                                <i class="bg-warning"></i> {{trainer.educationlevel}}
+
+                            </td>
+                            <td>
+                                <span class="badge badge-dot mr-4">
+                                    <i class="bg-warning"></i> {{trainer.adresse}}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-dot mr-4">
+                                    <i class="bg-warning"></i> {{trainer.email}}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-dot mr-4">
+                                    <i class="bg-warning"></i> {{trainer.fonenumber}}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-dot mr-4">
+                                    <!--<i class="bg-warning"></i> {{trainer.DateOfBirth }}-->
+                                    <input type="date" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"
+                                        [(ngModel)]="trainer.DateOfBirth "
+                                        class="form-control form-control-alternative">
+
+                                </span>
+                            </td>
+                            <td class="text-right">
+                                <div ngbDropdown placement="bottom-right">
+                                    <a class="btn btn-sm btn-icon-only text-light" ngbDropdownToggle>
+                                        <i class="fas fa-ellipsis-v"></i>
+                                    </a>
+                                    <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
+                                        <a class="dropdown-item" href="javascript:void(0)"
+                                            (click)="displayUpdateRow(trainer, trainer.id)">update</a>
+
+                                        <a class="dropdown-item" href="javascript:void(0)"
+                                            (click)="deleteTrainer(trainer, trainer.id)">delete</a>
+
+                                    </div>
+                                </div>
+                            </td>
+
+                        </tr>
+                    </ng-container>
+
+                    <!--Begin update row-->
+                    <tr [hidden]="updateRow_isHidden">
+                        <th scope="row">
+                            <div class="media align-items-center">
+                                <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
+                                    <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
+                                </a>
+                                <div class="media-body">
+                                    <!-- <span class="mb-0 text-sm">{{trainer.userName}}</span> -->
+                                    <input class="form-control form-control-alternative" type="text" id="name"
+                                        name="name" required minlength="4" size="17"
+                                        [(ngModel)]="selectedTrainer.userName">
+                                </div>
+                            </div>
+                        </th>
+                        <td>
+                            <!-- {{trainer.job}} -->
+
+                            <select class="form-control form-control-alternative" [(ngModel)]="selectedTrainer.domain">
+                                <option VALUE="default" selected>{{selectedTrainer.domain}}</option>
+                                <option VALUE="IT">IT</option>
+                                <option VALUE="PersonalDevelopment">PersonalDevelopment</option>
+                                <option VALUE="SoftSkills">SoftSkills</option>
+                                <option VALUE="Finance">Finance</option>
+                                <option VALUE="Sewing_Knitting">Sewing_Knitting</option>
+                            </select>
+
+
+                            <!--<input type="text" id="name" name="name" required minlength="4" size="17"
+                            [(ngModel)]="selectedTrainer.domain">-->
+
+                        </td>
+                        <td>
+                            <!-- {{trainer.job}} -->
+                            <input class="form-control form-control-alternative" type="text" id="name" name="name"
+                                required minlength="4" size="17" [(ngModel)]="selectedTrainer.job">
+                        </td>
+                        <td>
+                            <input type="text" class="badge badge-dot mr-4">
+                            <!-- <i class="bg-warning"></i> {{trainer.educationlevel}} -->
+                            <input class="form-control form-control-alternative" type="text" id="name" name="name"
+                                required minlength="4" size="17" [(ngModel)]="selectedTrainer.educationlevel">
+
+                        </td>
+                        <td>
+                            <!-- <span class="badge badge-dot mr-4">
+                                <i class="bg-warning"></i> {{trainer.adresse}}
+                            </span> -->
+                            <input class="form-control form-control-alternative" type="text" id="name" name="name"
+                                required minlength="4" size="" [(ngModel)]="selectedTrainer.adresse">
+                        </td>
+                        <td>
+                            <!-- <span class="badge badge-dot mr-4">
+                                <i class="bg-warning"></i> {{trainer.email}}
+                            </span> -->
+                            <input class="form-control form-control-alternative" type="text" id="name" name="name"
+                                required minlength="4" size="17" [(ngModel)]="selectedTrainer.email">
+                        </td>
+                        <td>
+                            <!-- <span class="badge badge-dot mr-4">
+                                <i class="bg-warning"></i> {{trainer.fonenumber}}
+                            </span> -->
+                            <input class="form-control form-control-alternative" type="text" id="name" name="name"
+                                required minlength="4" size="17" [(ngModel)]="selectedTrainer.fonenumber">
+
+                        </td>
+                        <td>
+                            <!-- <span class="badge badge-dot mr-4">
+                                <i class="bg-warning"></i> {{trainer.DateOfBirth }}
+                                
+                            </span> -->
+                            <!--<input type="text" id="name" name="name" required minlength="4" size="17"
+                                [(ngModel)]="selectedTrainer.DateOfBirth">-->
+
+
+                            <input type="date" required pattern="[0-9]{4}/[0-9]{2}/[0-9]{2}"
+                                [(ngModel)]="selectedTrainer.DateOfBirth "
+                                class="form-control form-control-alternative">
+
+
+
+
+                        </td>
+                        <td>
+
+                            <button (click)="updateTrainer(selectedTrainer)" class="btn btn-warning">Confirm</button>
+                            <button (click)="displayAllTrainers()" class="btn btn-warning">Abort</button>
+
+                        </td>
+                    </tr>
+                    <!--Emd update row update row-->
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<!--    
+    private int id;
+
+    private String userName; + 
+
+    private String email; + 
+
+    private String password; ///
+
+    private String country; +
+
+    private String adresse; +
+    private Boolean active; /// initiate to 1
+
+    private int fonenumber; +
+    @Temporal(TemporalType.DATE)
+
+    private Date DateOfBirth;
+
+    private String educationlevel; + 
+
+    private String job; + 
+
+    private boolean isEnabled;   /// initiate to 1-->

@@ -1,0 +1,17 @@
+<p>quiz-details works!</p>
+<h2>Quiz Details</h2> 
+
+<hr/>
+<div *ngIf="quiz">
+  <div>
+    <label><b>Quiz Id: </b></label> {{quiz.quizId}}
+  </div>
+  <div>
+    <label><b>Quiz Label: </b></label> {{quiz.quizName}}
+  </div>
+  
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Quiz List</button><br>
