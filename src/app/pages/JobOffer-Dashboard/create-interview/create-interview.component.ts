@@ -33,7 +33,7 @@ export class CreateInterviewComponent implements OnInit {
       error=>console.log(error));
   }
   goToEmployeeList(){
-    this.router.navigate(['/JobOffer']);
+    this.router.navigate(['/add']);
   }
   on(){
     console.log(this.Interview);

@@ -29,6 +29,7 @@ import {UpdateJobOfferComponent} from "../../pages/JobOffer-Dashboard/update-job
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import {NgxPaginationModule} from "ngx-pagination";
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -39,7 +40,9 @@ import {NgxPaginationModule} from "ngx-pagination";
     ClipboardModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
-    FullCalendarModule
+    FullCalendarModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     DashboardComponent,

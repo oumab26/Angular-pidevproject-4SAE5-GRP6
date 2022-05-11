@@ -49,7 +49,7 @@ export class UpdateJobOfferComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/JobOffer']);
+    this.router.navigate(['/JobOffer-Dashboard']);
   }
 
 

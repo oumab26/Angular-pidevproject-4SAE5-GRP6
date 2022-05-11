@@ -14,8 +14,19 @@
     <h5 class="card-title">Domaine:{{JobOffer.domaine}}</h5>
       <h5 class="card-title">Company:{{JobOffer.company}}</h5>
       <h5 class="card-title">Addresse:{{JobOffer.addressOffer}}</h5>
+      <h5 class="card-title">Email:{{JobOffer.email}}</h5>
       <h5 class="card-title">interview:{{JobOffer.interview}}</h5>
     <p class="card-text">Description:{{JobOffer.description}}</p>
+      <div class="main-div">
+        <div class="button-div">
+          <button class="fav-button">
+            <i class="fa fa-star"></i>
+            <span>Fav</span>
+          </button>
+        </div>
+
+      </div>
+      <br/>
     <button routerLink="/JobOffer-Dashboard"  class="btn btn-primary">Back to JobOffer List</button><br>
     </div>
   </div>
